@@ -13,6 +13,21 @@
 		044494372A90AC8400B46974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044494352A90AC8400B46974 /* Main.storyboard */; };
 		044494392A90AC8500B46974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044494382A90AC8500B46974 /* Assets.xcassets */; };
 		0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0444943A2A90AC8500B46974 /* LaunchScreen.storyboard */; };
+		0444944D2A90EEFE00B46974 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444944C2A90EEFE00B46974 /* HomeView.xib */; };
+		0444944F2A90EF1200B46974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444944E2A90EF1100B46974 /* HomeViewController.swift */; };
+		0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463B30E2A90F30800F4F5C0 /* ListGameView.xib */; };
+		0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */; };
+		049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC12A90FA9400FFFA66 /* GameModel.swift */; };
+		049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC72A90FD8E00FFFA66 /* GameRepository.swift */; };
+		049EABCA2A90FDA200FFFA66 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC92A90FDA200FFFA66 /* RemoteDataSource.swift */; };
+		049EABCC2A90FDB300FFFA66 /* GameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABCB2A90FDB300FFFA66 /* GameResponse.swift */; };
+		049EABD02A9102EE00FFFA66 /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABCF2A9102EE00FFFA66 /* NetworkUtil.swift */; };
+		049EABD32A91055D00FFFA66 /* CustomeError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD22A91055D00FFFA66 /* CustomeError+Ext.swift */; };
+		049EABD52A911A3400FFFA66 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD42A911A3400FFFA66 /* HomeViewModel.swift */; };
+		049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD72A911C6200FFFA66 /* ViewModelUtil.swift */; };
+		049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */; };
+		049EABDD2A91241F00FFFA66 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABDC2A91241F00FFFA66 /* Injection.swift */; };
+		D8B39F30A761C38EE7858441 /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,23 @@
 		044494382A90AC8500B46974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0444943B2A90AC8500B46974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0444943D2A90AC8500B46974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0444944C2A90EEFE00B46974 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		0444944E2A90EF1100B46974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0463B30E2A90F30800F4F5C0 /* ListGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListGameView.xib; sourceTree = "<group>"; };
+		0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGameViewTableCell.swift; sourceTree = "<group>"; };
+		049EABC12A90FA9400FFFA66 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		049EABC72A90FD8E00FFFA66 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
+		049EABC92A90FDA200FFFA66 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		049EABCB2A90FDB300FFFA66 /* GameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResponse.swift; sourceTree = "<group>"; };
+		049EABCF2A9102EE00FFFA66 /* NetworkUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
+		049EABD22A91055D00FFFA66 /* CustomeError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomeError+Ext.swift"; sourceTree = "<group>"; };
+		049EABD42A911A3400FFFA66 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		049EABD72A911C6200FFFA66 /* ViewModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUtil.swift; sourceTree = "<group>"; };
+		049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		049EABDC2A91241F00FFFA66 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
+		93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
+		E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B39F30A761C38EE7858441 /* Pods_Rawg_Io_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +75,8 @@
 			children = (
 				0444942E2A90AC8400B46974 /* Rawg Io API */,
 				0444942D2A90AC8400B46974 /* Products */,
+				B0993D50D042A45EA17AE8C0 /* Pods */,
+				E9B445BAD6DFD5EA86CA6099 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +91,11 @@
 		0444942E2A90AC8400B46974 /* Rawg Io API */ = {
 			isa = PBXGroup;
 			children = (
-				0444942F2A90AC8400B46974 /* AppDelegate.swift */,
-				044494312A90AC8400B46974 /* SceneDelegate.swift */,
+				049EABDB2A91240D00FFFA66 /* DI */,
+				049EABCD2A9102D300FFFA66 /* Utils */,
+				049EABBE2A90FA6C00FFFA66 /* Core */,
+				044494442A90ECB000B46974 /* Module */,
+				044494432A90EA1300B46974 /* App */,
 				044494332A90AC8400B46974 /* ViewController.swift */,
 				044494352A90AC8400B46974 /* Main.storyboard */,
 				044494382A90AC8500B46974 /* Assets.xcassets */,
@@ -67,6 +105,202 @@
 			path = "Rawg Io API";
 			sourceTree = "<group>";
 		};
+		044494432A90EA1300B46974 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0444942F2A90AC8400B46974 /* AppDelegate.swift */,
+				044494312A90AC8400B46974 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		044494442A90ECB000B46974 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				044494462A90ECCE00B46974 /* Detail */,
+				044494452A90ECBA00B46974 /* Home */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		044494452A90ECBA00B46974 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				044494492A90EDFF00B46974 /* Router */,
+				044494482A90EDEE00B46974 /* ViewModel */,
+				044494472A90EDE600B46974 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		044494462A90ECCE00B46974 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		044494472A90EDE600B46974 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044494512A90EFC200B46974 /* ListGame */,
+				044494502A90EFB900B46974 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		044494482A90EDEE00B46974 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		044494492A90EDFF00B46974 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		044494502A90EFB900B46974 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0444944C2A90EEFE00B46974 /* HomeView.xib */,
+				0444944E2A90EF1100B46974 /* HomeViewController.swift */,
+				049EABD42A911A3400FFFA66 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		044494512A90EFC200B46974 /* ListGame */ = {
+			isa = PBXGroup;
+			children = (
+				0463B30E2A90F30800F4F5C0 /* ListGameView.xib */,
+				0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */,
+			);
+			path = ListGame;
+			sourceTree = "<group>";
+		};
+		049EABBE2A90FA6C00FFFA66 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC32A90FD4F00FFFA66 /* Data */,
+				049EABBF2A90FA7700FFFA66 /* Domain */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		049EABBF2A90FA7700FFFA66 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC02A90FA7D00FFFA66 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		049EABC02A90FA7D00FFFA66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC12A90FA9400FFFA66 /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		049EABC32A90FD4F00FFFA66 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC62A90FD7D00FFFA66 /* Repository */,
+				049EABC42A90FD5A00FFFA66 /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		049EABC42A90FD5A00FFFA66 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC52A90FD6300FFFA66 /* Response */,
+				049EABC92A90FDA200FFFA66 /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		049EABC52A90FD6300FFFA66 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				049EABCB2A90FDB300FFFA66 /* GameResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		049EABC62A90FD7D00FFFA66 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				049EABC72A90FD8E00FFFA66 /* GameRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		049EABCD2A9102D300FFFA66 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				049EABD62A911C5400FFFA66 /* ViewModel */,
+				049EABD12A91054D00FFFA66 /* Ext */,
+				049EABCE2A9102DF00FFFA66 /* Network */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		049EABCE2A9102DF00FFFA66 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				049EABCF2A9102EE00FFFA66 /* NetworkUtil.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		049EABD12A91054D00FFFA66 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				049EABD22A91055D00FFFA66 /* CustomeError+Ext.swift */,
+				049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
+		049EABD62A911C5400FFFA66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049EABD72A911C6200FFFA66 /* ViewModelUtil.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		049EABDB2A91240D00FFFA66 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				049EABDC2A91241F00FFFA66 /* Injection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		B0993D50D042A45EA17AE8C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */,
+				59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E9B445BAD6DFD5EA86CA6099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044494402A90AC8500B46974 /* Build configuration list for PBXNativeTarget "Rawg Io API" */;
 			buildPhases = (
+				ED09B583AEEBBA3A44E413E3 /* [CP] Check Pods Manifest.lock */,
 				044494282A90AC8400B46974 /* Sources */,
 				044494292A90AC8400B46974 /* Frameworks */,
 				0444942A2A90AC8400B46974 /* Resources */,
@@ -125,22 +360,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */,
 				0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */,
 				044494392A90AC8500B46974 /* Assets.xcassets in Resources */,
+				0444944D2A90EEFE00B46974 /* HomeView.xib in Resources */,
 				044494372A90AC8400B46974 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ED09B583AEEBBA3A44E413E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rawg Io API-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		044494282A90AC8400B46974 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049EABDD2A91241F00FFFA66 /* Injection.swift in Sources */,
+				049EABD02A9102EE00FFFA66 /* NetworkUtil.swift in Sources */,
+				049EABCA2A90FDA200FFFA66 /* RemoteDataSource.swift in Sources */,
+				049EABD32A91055D00FFFA66 /* CustomeError+Ext.swift in Sources */,
 				044494342A90AC8400B46974 /* ViewController.swift in Sources */,
+				049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */,
 				044494302A90AC8400B46974 /* AppDelegate.swift in Sources */,
 				044494322A90AC8400B46974 /* SceneDelegate.swift in Sources */,
+				049EABD52A911A3400FFFA66 /* HomeViewModel.swift in Sources */,
+				049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */,
+				049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */,
+				0444944F2A90EF1200B46974 /* HomeViewController.swift in Sources */,
+				049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */,
+				0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */,
+				049EABCC2A90FDB300FFFA66 /* GameResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +556,7 @@
 		};
 		044494412A90AC8500B46974 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,7 +565,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rawg Io API/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -309,6 +584,7 @@
 		};
 		044494422A90AC8500B46974 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,7 +593,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rawg Io API/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
