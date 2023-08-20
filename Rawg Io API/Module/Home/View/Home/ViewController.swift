@@ -1,18 +1,15 @@
 //
-//  HomeViewController.swift
+//  ViewController.swift
 //  Rawg Io API
 //
 //  Created by MAC on 19/08/23.
 //
 
-import Foundation
 import UIKit
 
-final class HomeViewController: UIViewController {
-    
+class ViewController: UIViewController {
+
     @IBOutlet weak var gameTableView: UITableView!
-    @IBOutlet weak var homeToolbar: UIToolbar!
-    @IBOutlet weak var spinnerLoading: UIActivityIndicatorView!
     
     private var listGame: [GameModel]? = nil
     
@@ -30,13 +27,12 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupView(){
-        homeToolbar.largeContentTitle =  "Rawg.io"
+        //homeToolbar.largeContentTitle =  "Rawg.io"
     }
     
     private func setupTableView() {
         gameTableView.dataSource = self
         gameTableView.delegate = self
-        gameTableView.register(nibWithCellClass: ListGameViewTableCell.self)
     }
     
     private func didGetListGame(state: Status<[GameModel]>.type?) {
@@ -78,24 +74,23 @@ final class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController: UITableViewDelegate {}
+extension ViewController: UITableViewDelegate {}
 
-extension HomeViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         listGame?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withClass: ListGameViewTableCell.self, for: indexPath)
-        
-        guard let item = listGame?[indexPath.row] else {
-            return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "game_list_cell", for: indexPath) as! ListGameViewTableCell
+        let listGame = self.listGame?[indexPath.row]
+        if(listGame != nil) {
+            cell.setupViews(data: listGame!)
         }
-        
-        cell.setupViews(data: item)
         return cell
-
     }
-    
+
 }
+

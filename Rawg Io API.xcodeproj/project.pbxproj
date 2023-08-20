@@ -13,8 +13,6 @@
 		044494372A90AC8400B46974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044494352A90AC8400B46974 /* Main.storyboard */; };
 		044494392A90AC8500B46974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044494382A90AC8500B46974 /* Assets.xcassets */; };
 		0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0444943A2A90AC8500B46974 /* LaunchScreen.storyboard */; };
-		0444944D2A90EEFE00B46974 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444944C2A90EEFE00B46974 /* HomeView.xib */; };
-		0444944F2A90EF1200B46974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444944E2A90EF1100B46974 /* HomeViewController.swift */; };
 		0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463B30E2A90F30800F4F5C0 /* ListGameView.xib */; };
 		0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */; };
 		049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC12A90FA9400FFFA66 /* GameModel.swift */; };
@@ -39,8 +37,6 @@
 		044494382A90AC8500B46974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0444943B2A90AC8500B46974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0444943D2A90AC8500B46974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0444944C2A90EEFE00B46974 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
-		0444944E2A90EF1100B46974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0463B30E2A90F30800F4F5C0 /* ListGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListGameView.xib; sourceTree = "<group>"; };
 		0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGameViewTableCell.swift; sourceTree = "<group>"; };
 		049EABC12A90FA9400FFFA66 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
@@ -96,8 +92,6 @@
 				049EABBE2A90FA6C00FFFA66 /* Core */,
 				044494442A90ECB000B46974 /* Module */,
 				044494432A90EA1300B46974 /* App */,
-				044494332A90AC8400B46974 /* ViewController.swift */,
-				044494352A90AC8400B46974 /* Main.storyboard */,
 				044494382A90AC8500B46974 /* Assets.xcassets */,
 				0444943A2A90AC8500B46974 /* LaunchScreen.storyboard */,
 				0444943D2A90AC8500B46974 /* Info.plist */,
@@ -166,8 +160,8 @@
 		044494502A90EFB900B46974 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0444944C2A90EEFE00B46974 /* HomeView.xib */,
-				0444944E2A90EF1100B46974 /* HomeViewController.swift */,
+				044494352A90AC8400B46974 /* Main.storyboard */,
+				044494332A90AC8400B46974 /* ViewController.swift */,
 				049EABD42A911A3400FFFA66 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -363,7 +357,6 @@
 				0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */,
 				0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */,
 				044494392A90AC8500B46974 /* Assets.xcassets in Resources */,
-				0444944D2A90EEFE00B46974 /* HomeView.xib in Resources */,
 				044494372A90AC8400B46974 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +404,6 @@
 				049EABD52A911A3400FFFA66 /* HomeViewModel.swift in Sources */,
 				049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */,
 				049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */,
-				0444944F2A90EF1200B46974 /* HomeViewController.swift in Sources */,
 				049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */,
 				0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */,
 				049EABCC2A90FDB300FFFA66 /* GameResponse.swift in Sources */,
