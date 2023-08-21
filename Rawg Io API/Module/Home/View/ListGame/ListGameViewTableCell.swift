@@ -12,11 +12,13 @@ class ListGameViewTableCell: UITableViewCell {
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var releaseLbl: UILabel!
+    @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var ratingValueLbl: UILabel!
     
     func setupViews(data: GameModel) {
         
         titleLbl.text = data.title
         releaseLbl.text = data.released
-        print("jiwo: \(data)")
+        ratingValueLbl.text = String(data.rating)
     }
 }
