@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042E96452A93990C00A6EFAC /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E96442A93990C00A6EFAC /* RoundedImageView.swift */; };
+		042E96472A939A0400A6EFAC /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E96462A939A0400A6EFAC /* UIView+Ext.swift */; };
 		044494302A90AC8400B46974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444942F2A90AC8400B46974 /* AppDelegate.swift */; };
 		044494322A90AC8400B46974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044494312A90AC8400B46974 /* SceneDelegate.swift */; };
 		044494342A90AC8400B46974 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044494332A90AC8400B46974 /* ViewController.swift */; };
 		044494372A90AC8400B46974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044494352A90AC8400B46974 /* Main.storyboard */; };
 		044494392A90AC8500B46974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044494382A90AC8500B46974 /* Assets.xcassets */; };
 		0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0444943A2A90AC8500B46974 /* LaunchScreen.storyboard */; };
-		0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463B30E2A90F30800F4F5C0 /* ListGameView.xib */; };
-		0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */; };
 		049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC12A90FA9400FFFA66 /* GameModel.swift */; };
 		049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC72A90FD8E00FFFA66 /* GameRepository.swift */; };
 		049EABCA2A90FDA200FFFA66 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABC92A90FDA200FFFA66 /* RemoteDataSource.swift */; };
@@ -25,10 +25,14 @@
 		049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD72A911C6200FFFA66 /* ViewModelUtil.swift */; };
 		049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */; };
 		049EABDD2A91241F00FFFA66 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EABDC2A91241F00FFFA66 /* Injection.swift */; };
-		D8B39F30A761C38EE7858441 /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */; };
+		04CABEB32A9387290033A80B /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CABEB22A9387290033A80B /* UIImageView+Ext.swift */; };
+		04CABEB62A9388210033A80B /* ListGameViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CABEB52A9388210033A80B /* ListGameViewTableCell.swift */; };
+		57F9F8027A393CC66AF71F1F /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A62BE2B7E4DD70BF42951D /* Pods_Rawg_Io_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042E96442A93990C00A6EFAC /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		042E96462A939A0400A6EFAC /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0444942C2A90AC8400B46974 /* Rawg Io API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rawg Io API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0444942F2A90AC8400B46974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044494312A90AC8400B46974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,8 +41,6 @@
 		044494382A90AC8500B46974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0444943B2A90AC8500B46974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0444943D2A90AC8500B46974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0463B30E2A90F30800F4F5C0 /* ListGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListGameView.xib; sourceTree = "<group>"; };
-		0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGameViewTableCell.swift; sourceTree = "<group>"; };
 		049EABC12A90FA9400FFFA66 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		049EABC72A90FD8E00FFFA66 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		049EABC92A90FDA200FFFA66 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
@@ -49,9 +51,11 @@
 		049EABD72A911C6200FFFA66 /* ViewModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUtil.swift; sourceTree = "<group>"; };
 		049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		049EABDC2A91241F00FFFA66 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
-		59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
-		93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
-		E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CABEB22A9387290033A80B /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		04CABEB52A9388210033A80B /* ListGameViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGameViewTableCell.swift; sourceTree = "<group>"; };
+		2C2697BD2E1F2299E2994009 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
+		72A62BE2B7E4DD70BF42951D /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74EA97485A53F6E71B52BE8F /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,20 +63,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B39F30A761C38EE7858441 /* Pods_Rawg_Io_API.framework in Frameworks */,
+				57F9F8027A393CC66AF71F1F /* Pods_Rawg_Io_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042E96432A9398FF00A6EFAC /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				042E96442A93990C00A6EFAC /* RoundedImageView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		044494232A90AC8400B46974 = {
 			isa = PBXGroup;
 			children = (
 				0444942E2A90AC8400B46974 /* Rawg Io API */,
 				0444942D2A90AC8400B46974 /* Products */,
 				B0993D50D042A45EA17AE8C0 /* Pods */,
-				E9B445BAD6DFD5EA86CA6099 /* Frameworks */,
+				6B33DE9E851C0A5B5AB09B61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +99,7 @@
 		0444942E2A90AC8400B46974 /* Rawg Io API */ = {
 			isa = PBXGroup;
 			children = (
+				042E96432A9398FF00A6EFAC /* CustomView */,
 				049EABDB2A91240D00FFFA66 /* DI */,
 				049EABCD2A9102D300FFFA66 /* Utils */,
 				049EABBE2A90FA6C00FFFA66 /* Core */,
@@ -137,7 +150,7 @@
 		044494472A90EDE600B46974 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				044494512A90EFC200B46974 /* ListGame */,
+				04CABEB42A93880C0033A80B /* ListGame */,
 				044494502A90EFB900B46974 /* Home */,
 			);
 			path = View;
@@ -165,15 +178,6 @@
 				049EABD42A911A3400FFFA66 /* HomeViewModel.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		044494512A90EFC200B46974 /* ListGame */ = {
-			isa = PBXGroup;
-			children = (
-				0463B30E2A90F30800F4F5C0 /* ListGameView.xib */,
-				0463B3102A90F32400F4F5C0 /* ListGameViewTableCell.swift */,
-			);
-			path = ListGame;
 			sourceTree = "<group>";
 		};
 		049EABBE2A90FA6C00FFFA66 /* Core */ = {
@@ -258,6 +262,8 @@
 			children = (
 				049EABD22A91055D00FFFA66 /* CustomeError+Ext.swift */,
 				049EABD92A911FEC00FFFA66 /* UITableView+Extension.swift */,
+				04CABEB22A9387290033A80B /* UIImageView+Ext.swift */,
+				042E96462A939A0400A6EFAC /* UIView+Ext.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -278,21 +284,29 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		04CABEB42A93880C0033A80B /* ListGame */ = {
+			isa = PBXGroup;
+			children = (
+				04CABEB52A9388210033A80B /* ListGameViewTableCell.swift */,
+			);
+			path = ListGame;
+			sourceTree = "<group>";
+		};
+		6B33DE9E851C0A5B5AB09B61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72A62BE2B7E4DD70BF42951D /* Pods_Rawg_Io_API.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B0993D50D042A45EA17AE8C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */,
-				59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */,
+				2C2697BD2E1F2299E2994009 /* Pods-Rawg Io API.debug.xcconfig */,
+				74EA97485A53F6E71B52BE8F /* Pods-Rawg Io API.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E9B445BAD6DFD5EA86CA6099 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E6A44D7B768E9666BE7A0C20 /* Pods_Rawg_Io_API.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,10 +316,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044494402A90AC8500B46974 /* Build configuration list for PBXNativeTarget "Rawg Io API" */;
 			buildPhases = (
-				ED09B583AEEBBA3A44E413E3 /* [CP] Check Pods Manifest.lock */,
+				BAD3E158AB486E2AB22BC014 /* [CP] Check Pods Manifest.lock */,
 				044494282A90AC8400B46974 /* Sources */,
 				044494292A90AC8400B46974 /* Frameworks */,
 				0444942A2A90AC8400B46974 /* Resources */,
+				19E279A91998EF9496C06DB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0463B30F2A90F30800F4F5C0 /* ListGameView.xib in Resources */,
 				0444943C2A90AC8500B46974 /* LaunchScreen.storyboard in Resources */,
 				044494392A90AC8500B46974 /* Assets.xcassets in Resources */,
 				044494372A90AC8400B46974 /* Main.storyboard in Resources */,
@@ -364,7 +378,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		ED09B583AEEBBA3A44E413E3 /* [CP] Check Pods Manifest.lock */ = {
+		19E279A91998EF9496C06DB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAD3E158AB486E2AB22BC014 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -393,11 +424,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042E96472A939A0400A6EFAC /* UIView+Ext.swift in Sources */,
+				042E96452A93990C00A6EFAC /* RoundedImageView.swift in Sources */,
+				04CABEB62A9388210033A80B /* ListGameViewTableCell.swift in Sources */,
 				049EABDD2A91241F00FFFA66 /* Injection.swift in Sources */,
 				049EABD02A9102EE00FFFA66 /* NetworkUtil.swift in Sources */,
 				049EABCA2A90FDA200FFFA66 /* RemoteDataSource.swift in Sources */,
 				049EABD32A91055D00FFFA66 /* CustomeError+Ext.swift in Sources */,
 				044494342A90AC8400B46974 /* ViewController.swift in Sources */,
+				04CABEB32A9387290033A80B /* UIImageView+Ext.swift in Sources */,
 				049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */,
 				044494302A90AC8400B46974 /* AppDelegate.swift in Sources */,
 				044494322A90AC8400B46974 /* SceneDelegate.swift in Sources */,
@@ -405,7 +440,6 @@
 				049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */,
 				049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */,
 				049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */,
-				0463B3112A90F32400F4F5C0 /* ListGameViewTableCell.swift in Sources */,
 				049EABCC2A90FDB300FFFA66 /* GameResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,7 +582,7 @@
 		};
 		044494412A90AC8500B46974 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93DF71D92A03DB889A677C11 /* Pods-Rawg Io API.debug.xcconfig */;
+			baseConfigurationReference = 2C2697BD2E1F2299E2994009 /* Pods-Rawg Io API.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -576,7 +610,7 @@
 		};
 		044494422A90AC8500B46974 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59D38EDB90B4711745F4D89B /* Pods-Rawg Io API.release.xcconfig */;
+			baseConfigurationReference = 74EA97485A53F6E71B52BE8F /* Pods-Rawg Io API.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -11,7 +11,7 @@ struct GameModel : Equatable, Identifiable {
     
     let id: Int
     let title: String
-    let image: String
+    let imageUrl: String
     let rating: Double
     let released: String
 }
@@ -21,7 +21,7 @@ func mapGame(input response: [GameItemResponse]) -> [GameModel] {
     return GameModel(
       id: result.id ?? 0,
       title: result.name ?? "",
-      image: result.backgroundImage ?? "",
+      imageUrl: result.backgroundImage ?? "",
       rating: result.rating ?? 0.0,
       released: result.released ?? ""
     )
