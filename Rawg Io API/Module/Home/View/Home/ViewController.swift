@@ -74,7 +74,9 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDelegate {}
+extension ViewController: UITableViewDelegate {
+    
+}
 
 extension ViewController: UITableViewDataSource {
     
@@ -90,6 +92,13 @@ extension ViewController: UITableViewDataSource {
             cell.setupViews(data: listGame!)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gameId = Int32(listGame?[indexPath.row].id ?? 0)
+        let vc = DetailGameViewController()
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
