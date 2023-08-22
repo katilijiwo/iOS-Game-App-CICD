@@ -35,9 +35,7 @@ class ViewController: UIViewController {
         gameTableView.delegate = self
     }
     
-    private func didGetListGame(state: Status<[GameModel]>.type?) {
-        print("jiwo: " + state.debugDescription.lowercased())
-        
+    private func didGetListGame(state: Status<[GameModel]>.type?) {        
         switch state {
         case .loading:
             showIndicator(isHidden: true)
@@ -95,8 +93,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let gameId = Int32(listGame?[indexPath.row].id ?? 0)
+        let gameId = Int(listGame?[indexPath.row].id ?? 0)
         let vc = DetailGameViewController()
+        vc.newInstance(gameId: gameId)
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

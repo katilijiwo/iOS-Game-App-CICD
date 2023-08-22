@@ -8,7 +8,6 @@
 import Foundation
 
 struct GameModel : Equatable, Identifiable {
-    
     let id: Int
     let title: String
     let imageUrl: String
