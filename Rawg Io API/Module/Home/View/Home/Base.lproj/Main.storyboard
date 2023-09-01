@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="632"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="game_list_cell" rowHeight="450" id="wLQ-cC-fVD" customClass="ListGameViewTableCell" customModule="Rawg_Io_API" customModuleProvider="target">
@@ -126,13 +126,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-1Y-SaM">
+                                <rect key="frame" x="0.0" y="735" width="393" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="max-CI-6hL" userLabel="Home"/>
+                                    <tabBarItem systemItem="more" id="nhZ-HZ-5CE" userLabel="About"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vrw-fk-rn8"/>
                         <constraints>
+                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="bottom" secondItem="K6h-1Y-SaM" secondAttribute="bottom" id="A8u-1S-8cj"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="FPx-IL-oDS"/>
+                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="Hlz-Vq-qAp"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="MRp-3t-BA6"/>
-                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="bottom" secondItem="Vrw-fk-rn8" secondAttribute="bottom" id="P1w-of-CDe"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="PVu-Ya-Gls"/>
+                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="top" secondItem="8Kf-Zi-VGP" secondAttribute="bottom" id="TSt-qZ-fAg"/>
+                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="bkn-cX-3gB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qXa-qA-paR"/>

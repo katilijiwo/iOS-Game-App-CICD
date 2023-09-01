@@ -7,18 +7,17 @@
 
 import UIKit
 
-class DetailGameViewController: UIViewController {
+class DetailGameViewController: UIViewController, UIScrollViewDelegate {
 
-    
-    @IBOutlet weak var titleLbl: UILabel!
+            
+    @IBOutlet var rootView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var gameImg: UIImageView!
-    @IBOutlet weak var releaseValueLbl: UILabel!
-    @IBOutlet weak var ratingImg: UIImageView!
-    @IBOutlet weak var ratingValueLbl: UILabel!
-    @IBOutlet weak var esrbImg: UIImageView!
-    @IBOutlet weak var esrbValueLbl: UILabel!
-    @IBOutlet weak var platformCollectionView: UICollectionView!
-    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var releaseLbl: UILabel!
+    @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var esrbLbl: UILabel!
+    @IBOutlet weak var dscLabel: UILabel!
     
     private var gameId = 0
     
@@ -35,7 +34,11 @@ class DetailGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         viewModel.getGameDetail(id: gameId)
+        
+        scrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height)
+
     }
 
     func didGetGame(state: Status<GameDetailModel>.type?) {
@@ -47,7 +50,7 @@ class DetailGameViewController: UIViewController {
             displayData(data: data)
             showIndicator(isHidden: false)
             break
-        case .error(let err):
+        case .error(_):
             showIndicator(isHidden: false)
             break
         case .none:
@@ -68,10 +71,10 @@ class DetailGameViewController: UIViewController {
     private func displayData(data: GameDetailModel) {
         gameImg.sd_setImage(with: URL(string: data.bgImage))
         titleLbl.text = data.name
-        releaseValueLbl.text = data.released
-        ratingValueLbl.text = String(data.rating)
-        esrbValueLbl.text = data.esrbRating
-        descLbl.text = data.description.htmlToString
+        releaseLbl.text = data.released
+        ratingLbl.text = String(data.rating)
+        esrbLbl.text = data.esrbRating
+        dscLabel.text = data.description
     }
     
 }
