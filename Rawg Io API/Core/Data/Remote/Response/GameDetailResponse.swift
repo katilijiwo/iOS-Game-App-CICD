@@ -28,7 +28,7 @@ struct GameDetailResponse: Decodable {
     let released: String?
     let esrbRating: EsrbRatingResponse?
     let metacriticPlatforms: [MetricPlatformResponse]?
-    let platforms: [PlatformResponse]?
+    let platforms: [PlatformsResponse]?
     let backgroundImage: String?
 }
 
@@ -48,6 +48,14 @@ struct MetricPlatformResponse: Decodable {
     
     let metascore: Int?
     let url: String?
+}
+
+struct PlatformsResponse: Decodable {
+    private enum CodingKeys: String, CodingKey {
+      case platform = "platform"
+    }
+    
+    let platform: PlatformResponse?
 }
 
 struct PlatformResponse: Decodable {

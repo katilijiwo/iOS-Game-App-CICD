@@ -10,7 +10,8 @@ import UIKit
 import SDWebImage
 
 class ListGameViewTableCell: UITableViewCell {
-
+    static let identifier = "ListGameViewTableCell"
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var releaseLbl: UILabel!

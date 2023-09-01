@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var gameTableView: UITableView!
     
@@ -72,11 +72,11 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         listGame?.count ?? 0
@@ -84,7 +84,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "game_list_cell", for: indexPath) as! ListGameViewTableCell
+            withIdentifier: ListGameViewTableCell.identifier, for: indexPath) as! ListGameViewTableCell
         let listGame = self.listGame?[indexPath.row]
         if(listGame != nil) {
             cell.setupViews(data: listGame!)

@@ -43,7 +43,7 @@ func mapGameDetail(input response: GameDetailResponse) -> GameDetailModel {
     },
     platforms: response.platforms?.map { result in
         return PlatformModel(
-            name: result.name ?? ""
+            name: result.platform?.name ?? ""
         )
     },
     bgImage: response.backgroundImage ?? ""
