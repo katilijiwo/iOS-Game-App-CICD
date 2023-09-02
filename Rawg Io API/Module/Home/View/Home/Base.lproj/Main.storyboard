@@ -16,35 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-Zc-Taf">
-                                        <rect key="frame" x="334" y="35" width="40" height="25"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="COy-Lb-3CB"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
-                                        <rect key="frame" x="30" y="32" width="75" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
-                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="32" id="90A-pS-3qB"/>
-                                    <constraint firstAttribute="trailing" secondItem="3uf-Zc-Taf" secondAttribute="trailing" constant="19" id="D4i-hP-fne"/>
-                                    <constraint firstItem="3uf-Zc-Taf" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="34" id="EvM-6K-o0n"/>
-                                    <constraint firstAttribute="height" constant="80" id="I6i-5S-97m"/>
-                                    <constraint firstAttribute="bottom" secondItem="3uf-Zc-Taf" secondAttribute="bottom" constant="19.666666666666671" id="LlL-QT-daB"/>
-                                </constraints>
-                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-y6-UhB" userLabel="indicator">
+                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
-                                <rect key="frame" x="0.0" y="80" width="393" height="738"/>
+                                <rect key="frame" x="0.0" y="113" width="393" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListGameViewTableCell" rowHeight="450" id="wLQ-cC-fVD" customClass="ListGameViewTableCell" customModule="Rawg_Io_API" customModuleProvider="target">
@@ -153,11 +129,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-y6-UhB" userLabel="indicator">
-                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="63" width="393" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
+                                        <rect key="frame" x="30" y="4" width="75" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="4" id="90A-pS-3qB"/>
+                                    <constraint firstAttribute="height" constant="50" id="I6i-5S-97m"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vrw-fk-rn8"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vrw-fk-rn8" firstAttribute="trailing" secondItem="fDx-TB-YLp" secondAttribute="trailing" id="2Qs-xK-2eD"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="centerY" secondItem="jKn-c5-LWO" secondAttribute="centerY" id="3pb-Nj-LwS"/>
@@ -173,10 +164,22 @@
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="qu3-re-uxo"/>
                             <constraint firstItem="Vrw-fk-rn8" firstAttribute="trailing" secondItem="PjD-y6-UhB" secondAttribute="trailing" id="udW-K5-1ow"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="xcd-Xb-nd3"/>
-                            <constraint firstItem="fDx-TB-YLp" firstAttribute="top" secondItem="jKn-c5-LWO" secondAttribute="top" id="yg8-2F-LZz"/>
+                            <constraint firstItem="fDx-TB-YLp" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" constant="-40" id="yg8-2F-LZz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qXa-qA-paR"/>
+                    <navigationItem key="navigationItem" id="qXa-qA-paR">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" style="plain" id="sw4-3e-WqS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="f31-Fa-Kei" userLabel="ProfileBtn">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="About"/>
+                                <connections>
+                                    <action selector="aboutDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ceg-WI-QkD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameTableView" destination="8Kf-Zi-VGP" id="Ty7-EA-wQR"/>
                         <outlet property="loadingIndicator" destination="PjD-y6-UhB" id="dop-Be-rbk"/>
@@ -207,11 +210,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="star.square.on.square.fill" catalog="system" width="128" height="116"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

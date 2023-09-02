@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         setupTableView()
         viewModel.getCategories()
         showIndicator(isHidden: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func setupView(){
@@ -73,6 +74,12 @@ class HomeViewController: UIViewController {
     private func showErrorMessage(error: String) {
         //let message = MDCSnackbarMessage(text: "Something went wrong")
         //MDCSnackbarManager.default.show(message)
+    }
+    
+    
+    @IBAction func aboutDidPress(_ sender: UIButton) {
+        let vc = AboutViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
