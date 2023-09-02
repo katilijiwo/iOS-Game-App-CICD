@@ -16,8 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="I6i-5S-97m"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
-                                <rect key="frame" x="0.0" y="103" width="393" height="632"/>
+                                <rect key="frame" x="0.0" y="60" width="393" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListGameViewTableCell" rowHeight="450" id="wLQ-cC-fVD" customClass="ListGameViewTableCell" customModule="Rawg_Io_API" customModuleProvider="target">
@@ -86,7 +93,7 @@
                                                             <color key="highlightedColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.99755853414535522" green="0.99755865335464478" blue="0.99755853414535522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.96078431610000004" green="0.96078431610000004" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Ejh-UZ-mKp" secondAttribute="bottom" constant="16" id="1HG-jB-MKP"/>
                                                         <constraint firstItem="jQh-OK-YtD" firstAttribute="leading" secondItem="6ll-6u-Bn8" secondAttribute="leading" id="5Cu-hE-LqL"/>
@@ -126,29 +133,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-1Y-SaM">
-                                <rect key="frame" x="0.0" y="735" width="393" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="max-CI-6hL" userLabel="Home"/>
-                                    <tabBarItem systemItem="more" id="nhZ-HZ-5CE" userLabel="About"/>
-                                </items>
-                            </tabBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-y6-UhB" userLabel="indicator">
+                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vrw-fk-rn8"/>
                         <constraints>
-                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="bottom" secondItem="K6h-1Y-SaM" secondAttribute="bottom" id="A8u-1S-8cj"/>
-                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="FPx-IL-oDS"/>
-                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="Hlz-Vq-qAp"/>
+                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="trailing" secondItem="fDx-TB-YLp" secondAttribute="trailing" id="2Qs-xK-2eD"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="centerY" secondItem="jKn-c5-LWO" secondAttribute="centerY" id="3pb-Nj-LwS"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="43n-BE-QEV"/>
+                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="trailing" secondItem="PjD-y6-UhB" secondAttribute="trailing" id="4q7-I0-Kfd"/>
+                            <constraint firstItem="fDx-TB-YLp" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="63H-47-0AL"/>
+                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="bottom" secondItem="8Kf-Zi-VGP" secondAttribute="bottom" id="8nu-yh-3C6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="MRp-3t-BA6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="PVu-Ya-Gls"/>
-                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="top" secondItem="8Kf-Zi-VGP" secondAttribute="bottom" id="TSt-qZ-fAg"/>
-                            <constraint firstItem="K6h-1Y-SaM" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="bkn-cX-3gB"/>
+                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="bottom" id="Q3r-TQ-lV3"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="alh-vT-730"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="centerX" secondItem="jKn-c5-LWO" secondAttribute="centerX" id="dMj-0v-stT"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="qu3-re-uxo"/>
+                            <constraint firstItem="Vrw-fk-rn8" firstAttribute="trailing" secondItem="PjD-y6-UhB" secondAttribute="trailing" id="udW-K5-1ow"/>
+                            <constraint firstItem="PjD-y6-UhB" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="xcd-Xb-nd3"/>
+                            <constraint firstItem="fDx-TB-YLp" firstAttribute="top" secondItem="jKn-c5-LWO" secondAttribute="top" id="yg8-2F-LZz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qXa-qA-paR"/>
                     <connections>
                         <outlet property="gameTableView" destination="8Kf-Zi-VGP" id="Ty7-EA-wQR"/>
+                        <outlet property="loadingIndicator" destination="PjD-y6-UhB" id="dop-Be-rbk"/>
+                        <outlet property="navigationBar" destination="PjD-y6-UhB" id="Zrg-Ts-w5o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

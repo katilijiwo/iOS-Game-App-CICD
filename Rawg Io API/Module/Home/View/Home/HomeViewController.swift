@@ -9,7 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var navigationBar: UIActivityIndicatorView!
     @IBOutlet weak var gameTableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     private var listGame: [GameModel]? = nil
     
@@ -24,10 +26,11 @@ class HomeViewController: UIViewController {
         setupView()
         setupTableView()
         viewModel.getCategories()
+        showIndicator(isHidden: false)
     }
     
     private func setupView(){
-        //homeToolbar.largeContentTitle =  "Rawg.io"
+        navigationBar.largeContentTitle = "Rawg.io"
     }
     
     private func setupTableView() {
@@ -38,31 +41,33 @@ class HomeViewController: UIViewController {
     private func didGetListGame(state: Status<[GameModel]>.type?) {        
         switch state {
         case .loading:
-            showIndicator(isHidden: true)
+            showIndicator(isHidden: false)
             break
         case .result(let data):
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             self.listGame = data
             gameTableView.reloadData()
             break
         case .error(let err):
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             showErrorMessage(error: err)
             break
         case .none:
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             showErrorMessage(error: "Something went wrong")
             break
         }
     }
 
     private func showIndicator(isHidden: Bool) {
-        //spinnerLoading.isHidden = isHidden
-        //if(isHidden) {
-        //    spinnerLoading.stopAnimating()
-        //} else {
-        //    spinnerLoading.startAnimating()
-        //}
+        DispatchQueue.main.async {
+            self.loadingIndicator.isHidden = isHidden
+            if(isHidden) {
+                self.loadingIndicator.stopAnimating()
+            } else {
+                self.loadingIndicator.startAnimating()
+            }
+        }
     }
 
     private func showErrorMessage(error: String) {
