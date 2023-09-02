@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
 
 class HomeViewController: UIViewController {
 
@@ -72,8 +73,8 @@ class HomeViewController: UIViewController {
     }
 
     private func showErrorMessage(error: String) {
-        //let message = MDCSnackbarMessage(text: "Something went wrong")
-        //MDCSnackbarManager.default.show(message)
+        let message = MDCSnackbarMessage(text: error)
+        MDCSnackbarManager.default.show(message)
     }
     
     
