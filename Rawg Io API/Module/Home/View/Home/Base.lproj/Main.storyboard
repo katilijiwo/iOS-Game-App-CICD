@@ -169,7 +169,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qXa-qA-paR">
                         <barButtonItem key="rightBarButtonItem" title="Profile" style="plain" id="sw4-3e-WqS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="f31-Fa-Kei" userLabel="ProfileBtn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="f31-Fa-Kei" userLabel="ProfileBtn">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
