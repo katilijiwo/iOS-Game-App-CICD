@@ -19,16 +19,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-Zc-Taf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-Zc-Taf">
                                         <rect key="frame" x="334" y="35" width="40" height="25"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Xod-XE-AmJ"/>
+                                            <constraint firstAttribute="width" constant="40" id="COy-Lb-3CB"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
-                                        <rect key="frame" x="30.000000000000007" y="32" width="72.666666666666686" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <rect key="frame" x="30" y="32" width="75" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -36,15 +36,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
-                                    <constraint firstItem="3uf-Zc-Taf" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="34" id="46h-s2-E4f"/>
                                     <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="32" id="90A-pS-3qB"/>
-                                    <constraint firstAttribute="trailing" secondItem="3uf-Zc-Taf" secondAttribute="trailing" constant="19" id="G1S-vo-fwF"/>
+                                    <constraint firstAttribute="trailing" secondItem="3uf-Zc-Taf" secondAttribute="trailing" constant="19" id="D4i-hP-fne"/>
+                                    <constraint firstItem="3uf-Zc-Taf" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="34" id="EvM-6K-o0n"/>
                                     <constraint firstAttribute="height" constant="80" id="I6i-5S-97m"/>
-                                    <constraint firstAttribute="bottom" secondItem="3uf-Zc-Taf" secondAttribute="bottom" constant="15" id="u1m-PI-56h"/>
+                                    <constraint firstAttribute="bottom" secondItem="3uf-Zc-Taf" secondAttribute="bottom" constant="19.666666666666671" id="LlL-QT-daB"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
-                                <rect key="frame" x="0.0" y="60" width="393" height="758"/>
+                                <rect key="frame" x="0.0" y="80" width="393" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListGameViewTableCell" rowHeight="450" id="wLQ-cC-fVD" customClass="ListGameViewTableCell" customModule="Rawg_Io_API" customModuleProvider="target">
@@ -167,7 +167,7 @@
                             <constraint firstItem="Vrw-fk-rn8" firstAttribute="bottom" secondItem="8Kf-Zi-VGP" secondAttribute="bottom" id="8nu-yh-3C6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="MRp-3t-BA6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="PVu-Ya-Gls"/>
-                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="bottom" constant="-20" id="Q3r-TQ-lV3"/>
+                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="bottom" id="Q3r-TQ-lV3"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="alh-vT-730"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="centerX" secondItem="jKn-c5-LWO" secondAttribute="centerX" id="dMj-0v-stT"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="qu3-re-uxo"/>
