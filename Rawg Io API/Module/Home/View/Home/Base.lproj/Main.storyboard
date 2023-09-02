@@ -16,9 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-y6-UhB" userLabel="indicator">
-                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="63" width="393" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
+                                        <rect key="frame" x="30" y="4" width="75" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="4" id="90A-pS-3qB"/>
+                                    <constraint firstAttribute="height" constant="50" id="I6i-5S-97m"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
                                 <rect key="frame" x="0.0" y="113" width="393" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,23 +143,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="63" width="393" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
-                                        <rect key="frame" x="30" y="4" width="75" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
-                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="4" id="90A-pS-3qB"/>
-                                    <constraint firstAttribute="height" constant="50" id="I6i-5S-97m"/>
-                                </constraints>
-                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-y6-UhB" userLabel="indicator">
+                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vrw-fk-rn8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
