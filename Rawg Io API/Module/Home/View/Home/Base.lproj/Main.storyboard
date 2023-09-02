@@ -17,10 +17,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-TB-YLp" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-Zc-Taf">
+                                        <rect key="frame" x="334" y="35" width="40" height="25"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Xod-XE-AmJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rawg.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-ld-LSv">
+                                        <rect key="frame" x="30.000000000000007" y="32" width="72.666666666666686" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="I6i-5S-97m"/>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="leading" secondItem="fDx-TB-YLp" secondAttribute="leading" constant="30" id="3Mv-Gv-bsv"/>
+                                    <constraint firstItem="3uf-Zc-Taf" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="34" id="46h-s2-E4f"/>
+                                    <constraint firstItem="nPl-ld-LSv" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="top" constant="32" id="90A-pS-3qB"/>
+                                    <constraint firstAttribute="trailing" secondItem="3uf-Zc-Taf" secondAttribute="trailing" constant="19" id="G1S-vo-fwF"/>
+                                    <constraint firstAttribute="height" constant="80" id="I6i-5S-97m"/>
+                                    <constraint firstAttribute="bottom" secondItem="3uf-Zc-Taf" secondAttribute="bottom" constant="15" id="u1m-PI-56h"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Zi-VGP">
@@ -147,7 +167,7 @@
                             <constraint firstItem="Vrw-fk-rn8" firstAttribute="bottom" secondItem="8Kf-Zi-VGP" secondAttribute="bottom" id="8nu-yh-3C6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="leading" secondItem="Vrw-fk-rn8" secondAttribute="leading" id="MRp-3t-BA6"/>
                             <constraint firstItem="8Kf-Zi-VGP" firstAttribute="trailing" secondItem="Vrw-fk-rn8" secondAttribute="trailing" id="PVu-Ya-Gls"/>
-                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="bottom" id="Q3r-TQ-lV3"/>
+                            <constraint firstItem="8Kf-Zi-VGP" firstAttribute="top" secondItem="fDx-TB-YLp" secondAttribute="bottom" constant="-20" id="Q3r-TQ-lV3"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="alh-vT-730"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="centerX" secondItem="jKn-c5-LWO" secondAttribute="centerX" id="dMj-0v-stT"/>
                             <constraint firstItem="PjD-y6-UhB" firstAttribute="top" secondItem="Vrw-fk-rn8" secondAttribute="top" id="qu3-re-uxo"/>
@@ -187,7 +207,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="star.square.on.square.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
