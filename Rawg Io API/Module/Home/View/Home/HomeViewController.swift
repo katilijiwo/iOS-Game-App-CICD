@@ -83,6 +83,12 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func favoriteDidPress(_ sender: UIButton) {
+        let vc = FavoriteViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }
 
 extension HomeViewController: UITableViewDelegate {

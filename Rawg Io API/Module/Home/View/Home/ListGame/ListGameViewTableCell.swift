@@ -5,7 +5,6 @@
 //  Created by MAC on 21/08/23.
 //
 
-import Foundation
 import UIKit
 import SDWebImage
 

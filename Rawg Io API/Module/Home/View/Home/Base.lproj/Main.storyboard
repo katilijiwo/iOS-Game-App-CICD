@@ -168,17 +168,30 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qXa-qA-paR">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" style="plain" id="sw4-3e-WqS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="f31-Fa-Kei" userLabel="ProfileBtn">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="About"/>
-                                <connections>
-                                    <action selector="aboutDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ceg-WI-QkD"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Profile" style="plain" id="sw4-3e-WqS" userLabel="Bar Button Item 2">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="f31-Fa-Kei" userLabel="ProfileBtn">
+                                    <rect key="frame" x="195" y="5" width="87" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="About"/>
+                                    <connections>
+                                        <action selector="aboutDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ceg-WI-QkD"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="K5m-yL-T2W">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JEf-Q6-cUu" userLabel="FavoriteBtn">
+                                    <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Favorite"/>
+                                    <connections>
+                                        <action selector="favoriteDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOV-2z-Bi7"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="gameTableView" destination="8Kf-Zi-VGP" id="Ty7-EA-wQR"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class DetailGameViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class DetailGameViewController: UIViewController {
     @IBOutlet weak var esrbLbl: UILabel!
     @IBOutlet weak var dscLabel: UILabel!
     @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     private var gameId = 0
     private var platforms: [PlatformModel]? = nil
@@ -46,30 +48,30 @@ class DetailGameViewController: UIViewController {
     func didGetGame(state: Status<GameDetailModel>.type?) {
         switch state {
         case .loading:
-            showIndicator(isHidden: true)
+            showIndicator(isHidden: false)
             break
         case .result(let data):
             platforms = data.platforms
             displayData(data: data)
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             platformCollection?.reloadData()
             break
         case .error(_):
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             break
         case .none:
-            showIndicator(isHidden: false)
+            showIndicator(isHidden: true)
             break
         }
     }
     
     private func showIndicator(isHidden: Bool) {
-        //spinnerLoading.isHidden = isHidden
-        //if(isHidden) {
-        //    spinnerLoading.stopAnimating()
-        //} else {
-        //    spinnerLoading.startAnimating()
-        //}
+        loadingIndicator.isHidden = isHidden
+        if(isHidden) {
+            loadingIndicator.stopAnimating()
+        } else {
+            loadingIndicator.startAnimating()
+        }
     }
     
     private func displayData(data: GameDetailModel) {
@@ -82,6 +84,12 @@ class DetailGameViewController: UIViewController {
         dscLabel.numberOfLines = 0
         dscLabel.sizeToFit()
     }
+    
+    @IBAction func favDidTap(_ sender: UIButton) {
+        let message = MDCSnackbarMessage(text: "Game added to favorite")
+        MDCSnackbarManager.default.show(message)
+    }
+    
     
 }
 

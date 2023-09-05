@@ -5,7 +5,6 @@
 //  Created by MAC on 19/08/23.
 //
 
-import Foundation
 import UIKit
 
 public extension UITableView {
