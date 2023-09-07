@@ -16,13 +16,24 @@ struct GameModel : Equatable, Identifiable {
 }
 
 func mapGame(input response: [GameItemResponse]) -> [GameModel] {
-  return response.map { result in
+    return response.map { result in
+        return GameModel(
+            id: result.id ?? 0,
+            title: result.name ?? "",
+            imageUrl: result.backgroundImage ?? "",
+            rating: result.rating ?? 0.0,
+            released: result.released ?? ""
+        )
+    }
+}
+
+func mapGame(input entity: GameEntity?) -> GameModel? {
+    guard entity != nil else { return nil }
     return GameModel(
-      id: result.id ?? 0,
-      title: result.name ?? "",
-      imageUrl: result.backgroundImage ?? "",
-      rating: result.rating ?? 0.0,
-      released: result.released ?? ""
+        id: entity?.gameId ?? 0,
+        title: entity?.title ?? "",
+        imageUrl: entity?.imageUrl ?? "",
+        rating: entity?.rating ?? 0.0,
+        released: entity?.released ?? ""
     )
-  }
 }

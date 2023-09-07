@@ -8,6 +8,7 @@
 import Foundation
 
 struct GameDetailModel {
+    let id: Int
     let name: String
     let description: String
     let rating: Double
@@ -30,6 +31,7 @@ struct PlatformModel {
 
 func mapGameDetail(input response: GameDetailResponse) -> GameDetailModel {    
   return GameDetailModel(
+    id: response.id ?? 0,
     name: response.name ?? "",
     description: response.description ?? "",
     rating: response.rating ?? 0.0,

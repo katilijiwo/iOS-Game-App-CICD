@@ -11,6 +11,8 @@ import Foundation
 class DetailGameViewModel {
     
     var didGetGame: ((Status<GameDetailModel>.type) -> Void)? = nil
+    var didFavGame: ((Status<Void?>.type) -> Void)? = nil
+    var didGameIsFav: ((Status<GameModel?>.type) -> Void)? = nil
     
     private let gameRepository: GameRepositoryProtocol
     init(gameRepository: GameRepositoryProtocol) {
@@ -31,6 +33,24 @@ class DetailGameViewModel {
                 }
             }
         }
+    }
+    
+    func insertFavGame(gameModel: GameModel) {
+        self.didGetGame?(Status<GameDetailModel>.type.loading)
+        gameRepository.insertFavGame(
+            gameModel: gameModel,
+            completion: {
+                //TODO: JIWO
+                print("jiwo sucess 2")
+                self.didFavGame?(Status<Void?>.type.result(nil))
+            }
+        )
+    }
+    
+    func getFavGameById(gameId: Int) {
+        gameRepository.getFavGamesById(id: gameId, completion: { result in
+            self.didGameIsFav?(Status<GameModel?>.type.result(result))
+        })
     }
     
 }
