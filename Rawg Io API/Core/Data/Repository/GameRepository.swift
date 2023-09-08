@@ -9,9 +9,11 @@ import Foundation
 
 protocol GameRepositoryProtocol {
     func getListGame(result: @escaping (Result<[GameModel], Error>) -> Void)
-    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void)
     func getGameDetail(gameId: Int, result: @escaping (Result<GameDetailModel, Error>) -> Void)
     func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void)
+    func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
+    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void)
+    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void)
 }
 
 final class GameRepository: NSObject {
@@ -60,6 +62,24 @@ extension GameRepository: GameRepositoryProtocol {
     func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void) {
         self.local.insertGame(
             gameEntity: mapGameEntity(input: gameModel),
+            completion: {
+                completion()
+            }
+        )
+    }
+    
+    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void) {
+        self.local.updateGame(
+            gameEntity: mapGameEntity(input: gameModel),
+            completion: {
+                completion()
+            }
+        )
+    }
+    
+    func deleteFavGame(gameId: Int, completion: @escaping() -> Void) {
+        self.local.deleteFavGame(
+            gameId: gameId,
             completion: {
                 completion()
             }

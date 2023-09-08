@@ -46,6 +46,17 @@ extension LocalDataSource: LocalDataSourceProtocol {
         )
     }
     
+    func updateGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
+        provider.updateGame(
+            gameEntity: gameEntity,
+            completion: {
+                DispatchQueue.main.async {
+                    completion()
+                }
+            }
+        )
+    }
+    
     func deleteFavGame(gameId: Int, completion: @escaping() -> Void) {
         provider.deleteGame(gameId: gameId, completion: {
             DispatchQueue.main.async {

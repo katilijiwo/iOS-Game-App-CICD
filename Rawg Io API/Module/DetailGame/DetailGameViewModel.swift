@@ -40,8 +40,26 @@ class DetailGameViewModel {
         gameRepository.insertFavGame(
             gameModel: gameModel,
             completion: {
-                //TODO: JIWO
-                print("jiwo sucess 2")
+                self.didFavGame?(Status<Void?>.type.result(nil))
+            }
+        )
+    }
+    
+    func updateFaveGame(gameModel: GameModel) {
+        self.didGetGame?(Status<GameDetailModel>.type.loading)
+        gameRepository.updateFaveGame(
+            gameModel: gameModel,
+            completion: {
+                self.didFavGame?(Status<Void?>.type.result(nil))
+            }
+        )
+    }
+    
+    func deleteFaveGame(gameId: Int) {
+        self.didGetGame?(Status<GameDetailModel>.type.loading)
+        gameRepository.deleteFavGame(
+            gameId: gameId,
+            completion: {
                 self.didFavGame?(Status<Void?>.type.result(nil))
             }
         )

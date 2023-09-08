@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(GameEntity)
+@objc(Games)
 public class Games: NSManagedObject {
     
 }

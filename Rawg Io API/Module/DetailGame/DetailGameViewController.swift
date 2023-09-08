@@ -25,6 +25,7 @@ class DetailGameViewController: UIViewController {
     
     private var gameId = 0
     private var tempData: GameDetailModel? = nil
+    private var isGameFav = false
     
     private lazy var viewModel: DetailGameViewModel = {
         let repository = Injection.init().provideRepository()
@@ -75,8 +76,6 @@ class DetailGameViewController: UIViewController {
             showIndicator(isHidden: false)
             break
         case .result(_):
-            let message = MDCSnackbarMessage(text: "Game added to favorite")
-            MDCSnackbarManager.default.show(message)
             showIndicator(isHidden: true)
             viewModel.getFavGameById(gameId: self.gameId)
             break
@@ -93,6 +92,7 @@ class DetailGameViewController: UIViewController {
             break
         case .result(let data):
             DispatchQueue.main.sync {
+                isGameFav = data != nil
                 if(data != nil) {
                     loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
                     loveImg.tintColor = UIColor.red
@@ -130,15 +130,22 @@ class DetailGameViewController: UIViewController {
     }
     
     @IBAction func favDidTap(_ sender: UIButton) {
-        viewModel.insertFavGame(
-            gameModel: GameModel(
-                id: tempData?.id ?? 0,
-                title: tempData?.name ?? "",
-                imageUrl: tempData?.bgImage ?? "",
-                rating: tempData?.rating ?? 0,
-                released: tempData?.released ?? ""
-            )
+        var message = ""
+        let gameModel = GameModel(
+            id: tempData?.id ?? 0,
+            title: tempData?.name ?? "",
+            imageUrl: tempData?.bgImage ?? "",
+            rating: tempData?.rating ?? 0,
+            released: tempData?.released ?? ""
         )
+        if(isGameFav) {
+            viewModel.deleteFaveGame(gameId: gameId)
+            message = "Game removed from favorite"
+        } else {
+            viewModel.insertFavGame(gameModel: gameModel)
+            message = "Game added to favorite"
+        }
+        MDCSnackbarManager.default.show(MDCSnackbarMessage(text: message))
     }
     
     

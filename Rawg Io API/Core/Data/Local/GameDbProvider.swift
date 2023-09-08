@@ -83,10 +83,7 @@ class GameDbProvider {
         }
     }
     
-    func insertGame(
-        gameEntity: GameEntity,
-        completion: @escaping() -> Void
-    ) {
+    func insertGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
         let taskContext = newTaskContext()
         taskContext.performAndWait {
             if let entity = NSEntityDescription.entity(forEntityName: self.CONTAINER, in: taskContext) {
@@ -98,27 +95,21 @@ class GameDbProvider {
                     game.setValue(gameEntity.rating, forKeyPath: "rating")
                     game.setValue(gameEntity.released, forKeyPath: "released")
                     try taskContext.save()
-                    //TODO JIWO:
-                    print("jiwo success")
                     completion()
                 } catch let error as NSError {
-                    //TODO JIWO:
-                    print("jiwo Could not save. \(error), \(error.userInfo)")
+                    print("Could not save. \(error), \(error.userInfo)")
                 }
             }
         }
     }
     
-    func updateGame(
-        gameEntity: GameEntity,
-        completion: @escaping() -> Void
-    ) {
+    func updateGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
         let taskContext = newTaskContext()
         taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: self.CONTAINER)
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Member")
             fetchRequest.fetchLimit = 1
-            fetchRequest.predicate = NSPredicate(format: "gameId == \(String(describing: gameEntity.gameId))")
-            if let result = try? taskContext.fetch(fetchRequest), let game = result.first as? Games {
+            fetchRequest.predicate = NSPredicate(format: "id == \(gameEntity.gameId)")
+            if let result = try? taskContext.fetch(fetchRequest), let game = result.first as? Game {
                 do {
                     game.setValue(gameEntity.title, forKeyPath: "title")
                     game.setValue(gameEntity.imageUrl, forKeyPath: "imageUrl")
