@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LocalDataSourceProtocol: AnyObject {
-    func getFavGames(id: Int, completion: @escaping ([GameEntity]) -> Void)
+    func getFavGames(completion: @escaping ([GameEntity]) -> Void)
     func getFavGamesById(id: Int, completion: @escaping (GameEntity?) -> Void)
     func insertGame(gameEntity: GameEntity, completion: @escaping() -> Void)
     func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
@@ -23,9 +23,9 @@ class LocalDataSource: NSObject {
 
 extension LocalDataSource: LocalDataSourceProtocol {
     
-    func getFavGames(id: Int, completion: @escaping ([GameEntity]) -> Void) {
+    func getFavGames(completion: @escaping ([GameEntity]) -> Void) {
         provider.getAllGame { result in
-            print(result)
+            completion(result)
         }
     }
     

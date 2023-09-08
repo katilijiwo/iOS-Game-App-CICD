@@ -14,6 +14,7 @@ protocol GameRepositoryProtocol {
     func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
     func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void)
     func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void)
+    func getFavGames(completion: @escaping ([GameModel]?) -> Void)
 }
 
 final class GameRepository: NSObject {
@@ -88,6 +89,13 @@ extension GameRepository: GameRepositoryProtocol {
     
     func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void) {
         self.local.getFavGamesById(id: id, completion: { result in
+            let gameModel = mapGame(input: result)
+            completion(gameModel)
+        })
+    }
+    
+    func getFavGames(completion: @escaping ([GameModel]?) -> Void) {
+        self.local.getFavGames(completion: { result in
             let gameModel = mapGame(input: result)
             completion(gameModel)
         })
