@@ -11,13 +11,13 @@ class HomeViewModel {
     
     var didGetListGame: ((Status<[GameModel]>.type) -> Void)? = nil
     
-    private let gameRepository: GameRepositoryProtocol
-    init(gameRepository: GameRepositoryProtocol) {
-        self.gameRepository = gameRepository
+    private let gameUseCase: GameUseCase
+    init(gameUseCase: GameUseCase) {
+        self.gameUseCase = gameUseCase
     }
     
     func getCategories() {
-        gameRepository.getListGame { result in
+        gameUseCase.getListGame { result in
             self.didGetListGame?(Status<[GameModel]>.type.loading)
             switch result {
             case .success(let result):

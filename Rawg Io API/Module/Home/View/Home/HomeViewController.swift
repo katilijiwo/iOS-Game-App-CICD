@@ -17,8 +17,8 @@ class HomeViewController: UIViewController {
     private var listGame: [GameModel]? = nil
     
     private lazy var viewModel: HomeViewModel = {
-        let repository = Injection.init().provideRepository()
-        let vm = HomeViewModel(gameRepository: repository)
+        let useCase = Injection.init().provideGameUseCase()
+        let vm = HomeViewModel(gameUseCase: useCase)
         vm.didGetListGame = didGetListGame
         return vm
     }()

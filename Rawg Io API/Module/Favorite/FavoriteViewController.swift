@@ -33,6 +33,7 @@ class FavoriteViewController: UIViewController {
         favoriteTableView.register(
             UINib(nibName: FavoriteTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: FavoriteTableViewCell.identifier)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.title = "Favorite"
     }
     
     private func didGetListFavGame(state: Status<[GameModel]?>.type?) {

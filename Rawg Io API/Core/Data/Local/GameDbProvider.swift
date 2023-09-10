@@ -9,7 +9,11 @@ import CoreData
 import UIKit
 
 
-class GameDbProvider {
+class GameDbProvider: NSObject {
+    
+    private override init() { }
+    static let sharedInstance: GameDbProvider =  GameDbProvider()
+
     
     private final let CONTAINER = "Game"
     

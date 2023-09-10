@@ -28,8 +28,8 @@ class DetailGameViewController: UIViewController {
     private var isGameFav = false
     
     private lazy var viewModel: DetailGameViewModel = {
-        let repository = Injection.init().provideRepository()
-        let vm = DetailGameViewModel(gameRepository: repository)
+        let useCase = Injection.init().provideGameDetailUseCase()
+        let vm = DetailGameViewModel(gameDetailUseCase: useCase)
         vm.didGetGame = didGetGame
         vm.didFavGame = didFavGame
         vm.didGameIsFav = didGameIsFav

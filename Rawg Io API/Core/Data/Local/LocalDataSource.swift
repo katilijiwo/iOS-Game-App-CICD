@@ -15,9 +15,15 @@ protocol LocalDataSourceProtocol: AnyObject {
 }
 
 class LocalDataSource: NSObject {
+    typealias LocalDataSourceInstance = (GameDbProvider) -> LocalDataSource
+    
     private let provider: GameDbProvider
+    
     init(provider: GameDbProvider) {
         self.provider = provider
+    }
+    static let sharedInstance: LocalDataSourceInstance = { provider in
+        return LocalDataSource(provider: provider)
     }
 }
 

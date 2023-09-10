@@ -40,8 +40,8 @@ extension GameRepository: GameRepositoryProtocol {
         self.remote.getGameList { remoteResponses in
             switch remoteResponses {
             case .success(let response):
-                let resultList = mapGame(input: response)
-                result(.success(resultList))
+                let gameDetail = mapGame(input: response)
+                result(.success(gameDetail))
             case .failure(let error):
                 result(.failure(error))
             }

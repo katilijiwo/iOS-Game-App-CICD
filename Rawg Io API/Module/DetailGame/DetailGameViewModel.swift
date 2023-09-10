@@ -14,13 +14,13 @@ class DetailGameViewModel {
     var didFavGame: ((Status<Void?>.type) -> Void)? = nil
     var didGameIsFav: ((Status<GameModel?>.type) -> Void)? = nil
     
-    private let gameRepository: GameRepositoryProtocol
-    init(gameRepository: GameRepositoryProtocol) {
-        self.gameRepository = gameRepository
+    private let gameDetailUseCase: GameDetailUseCase
+    init(gameDetailUseCase: GameDetailUseCase) {
+        self.gameDetailUseCase = gameDetailUseCase
     }
     
     func getGameDetail(id: Int) {
-        gameRepository.getGameDetail(gameId: id) { result in
+        gameDetailUseCase.getGameDetail(gameId: id) { result in
             self.didGetGame?(Status<GameDetailModel>.type.loading)
             switch result {
             case .success(let result):
@@ -37,7 +37,7 @@ class DetailGameViewModel {
     
     func insertFavGame(gameModel: GameModel) {
         self.didGetGame?(Status<GameDetailModel>.type.loading)
-        gameRepository.insertFavGame(
+        gameDetailUseCase.insertFavGame(
             gameModel: gameModel,
             completion: {
                 self.didFavGame?(Status<Void?>.type.result(nil))
@@ -47,7 +47,7 @@ class DetailGameViewModel {
     
     func updateFaveGame(gameModel: GameModel) {
         self.didGetGame?(Status<GameDetailModel>.type.loading)
-        gameRepository.updateFaveGame(
+        gameDetailUseCase.updateFaveGame(
             gameModel: gameModel,
             completion: {
                 self.didFavGame?(Status<Void?>.type.result(nil))
@@ -57,7 +57,7 @@ class DetailGameViewModel {
     
     func deleteFaveGame(gameId: Int) {
         self.didGetGame?(Status<GameDetailModel>.type.loading)
-        gameRepository.deleteFavGame(
+        gameDetailUseCase.deleteFavGame(
             gameId: gameId,
             completion: {
                 self.didFavGame?(Status<Void?>.type.result(nil))
@@ -66,7 +66,7 @@ class DetailGameViewModel {
     }
     
     func getFavGameById(gameId: Int) {
-        gameRepository.getFavGamesById(id: gameId, completion: { result in
+        gameDetailUseCase.getFavGamesById(id: gameId, completion: { result in
             self.didGameIsFav?(Status<GameModel?>.type.result(result))
         })
     }

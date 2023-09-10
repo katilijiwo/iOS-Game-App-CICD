@@ -11,8 +11,19 @@ final class Injection: NSObject {
     
     func provideRepository() -> GameRepositoryProtocol {
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
-        let local: LocalDataSource = LocalDataSource(provider: GameDbProvider())
+        let gameProvider: GameDbProvider = GameDbProvider.sharedInstance
+        let local: LocalDataSource = LocalDataSource.sharedInstance(gameProvider)
         return GameRepository.sharedInstance(remote, local)
+    }
+    
+    func provideGameUseCase() -> GameUseCase {
+        let repository = provideRepository()
+        return GameUseCase.sharedInstance(repository)
+    }
+    
+    func provideGameDetailUseCase() -> GameDetailUseCase {
+        let repository = provideRepository()
+        return GameDetailUseCase.sharedInstance(repository)
     }
     
 }

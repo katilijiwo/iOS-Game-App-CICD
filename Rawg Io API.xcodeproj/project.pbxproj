@@ -47,6 +47,8 @@
 		1617DA6F2AA76B6500728941 /* GameDbProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617DA6E2AA76B6500728941 /* GameDbProvider.swift */; };
 		1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */; };
 		16813A202AAA2D13002D5378 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16813A1E2AAA2D13002D5378 /* Game.swift */; };
+		168DC4FE2AAC60230039AAF6 /* GameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DC4FD2AAC60230039AAF6 /* GameUseCase.swift */; };
+		16D7A3232AADB6A1003EEA57 /* GameDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7A3222AADB6A1003EEA57 /* GameDetailUseCase.swift */; };
 		B465BD2C32C3E1F8EF2E64FA /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2615F9F5F573B180A6F263 /* Pods_Rawg_Io_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		1617DA6E2AA76B6500728941 /* GameDbProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDbProvider.swift; sourceTree = "<group>"; };
 		1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		16813A1E2AAA2D13002D5378 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Game.swift; path = "Rawg Io API/Core/Data/Local/Entity/Game.swift"; sourceTree = SOURCE_ROOT; };
+		168DC4FD2AAC60230039AAF6 /* GameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUseCase.swift; sourceTree = "<group>"; };
+		16D7A3222AADB6A1003EEA57 /* GameDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailUseCase.swift; sourceTree = "<group>"; };
 		572F76E0F909F5158BAB0540 /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
 		9CA71F86826199B31057E598 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
 		FC2615F9F5F573B180A6F263 /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +240,7 @@
 		049EABBF2A90FA7700FFFA66 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				168DC4FC2AAC60060039AAF6 /* UseCase */,
 				049EABC02A90FA7D00FFFA66 /* Model */,
 			);
 			path = Domain;
@@ -367,6 +372,15 @@
 				1617DA6B2AA7650400728941 /* Game.xcdatamodeld */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		168DC4FC2AAC60060039AAF6 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				168DC4FD2AAC60230039AAF6 /* GameUseCase.swift */,
+				16D7A3222AADB6A1003EEA57 /* GameDetailUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		75112D65C6DAC762C61B5116 /* Frameworks */ = {
@@ -526,6 +540,7 @@
 				16813A202AAA2D13002D5378 /* Game.swift in Sources */,
 				1617DA652AA75C4F00728941 /* LocalDataSource.swift in Sources */,
 				04940EB32AA5A7920056219B /* FavoriteViewController.swift in Sources */,
+				16D7A3232AADB6A1003EEA57 /* GameDetailUseCase.swift in Sources */,
 				04CABEB32A9387290033A80B /* UIImageView+Ext.swift in Sources */,
 				049EABC22A90FA9400FFFA66 /* GameModel.swift in Sources */,
 				044494302A90AC8400B46974 /* AppDelegate.swift in Sources */,
@@ -534,6 +549,7 @@
 				049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */,
 				049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */,
 				1617DA6D2AA7650400728941 /* Game.xcdatamodeld in Sources */,
+				168DC4FE2AAC60230039AAF6 /* GameUseCase.swift in Sources */,
 				0460C8962AA223AE00E12CD5 /* PlatformCollectionViewCell.swift in Sources */,
 				049EABC82A90FD8E00FFFA66 /* GameRepository.swift in Sources */,
 				1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */,
