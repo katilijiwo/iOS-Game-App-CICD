@@ -7,165 +7,143 @@
 
 import CoreData
 import UIKit
+import RealmSwift
+import Combine
 
+protocol GameDbProviderProtocol: AnyObject {
 
-class GameDbProvider: NSObject {
-    
-    private override init() { }
-    static let sharedInstance: GameDbProvider =  GameDbProvider()
-
-    
-    private final let CONTAINER = "Game"
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: self.CONTAINER)
-        container.loadPersistentStores { _, error in
-            guard error == nil else {
-                fatalError("Unresolved error \(error!)")
-            }
-        }
-        container.viewContext.automaticallyMergesChangesFromParent = false
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        container.viewContext.shouldDeleteInaccessibleFaults = true
-        container.viewContext.undoManager = nil
-        return container
-    }()
-    
-    private func newTaskContext() -> NSManagedObjectContext {
-        let taskContext = persistentContainer.newBackgroundContext()
-        taskContext.undoManager = nil
-        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        return taskContext
-    }
-    
-    func getAllGame(completion: @escaping(_ games: [GameEntity]) -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: self.CONTAINER)
-            do {
-                let results = try taskContext.fetch(fetchRequest)
-                var games: [GameEntity] = []
-                for result in results {
-                    games.append(GameEntity(
-                        gameId: result.value(forKeyPath: "gameId") as? Int,
-                        title: result.value(forKeyPath: "title") as? String,
-                        imageUrl: result.value(forKeyPath: "imageUrl") as? String,
-                        rating: result.value(forKeyPath: "rating") as? Double,
-                        released: result.value(forKeyPath: "released") as? String
-                    ))
-                }
-                completion(games)
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-        }
-    }
-    
-    func getGameById(gameId: Int, completion: @escaping(_ games: GameEntity?) -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: self.CONTAINER)
-            do {
-                let results = try taskContext.fetch(fetchRequest)
-                var games: GameEntity? = nil
-                for result in results {
-                    let id = result.value(forKeyPath: "gameId") as? Int
-                    if(id == gameId) {
-                        games = GameEntity(
-                            gameId: result.value(forKeyPath: "gameId") as? Int,
-                            title: result.value(forKeyPath: "title") as? String,
-                            imageUrl: result.value(forKeyPath: "imageUrl") as? String,
-                            rating: result.value(forKeyPath: "rating") as? Double,
-                            released: result.value(forKeyPath: "released") as? String
-                        )
-                    }
-                }
-                completion(games)
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-        }
-    }
-    
-    func insertGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.performAndWait {
-            if let entity = NSEntityDescription.entity(forEntityName: self.CONTAINER, in: taskContext) {
-                do {
-                    let game = NSManagedObject(entity: entity, insertInto: taskContext)
-                    game.setValue(gameEntity.gameId, forKeyPath: "gameId")
-                    game.setValue(gameEntity.title, forKeyPath: "title")
-                    game.setValue(gameEntity.imageUrl, forKeyPath: "imageUrl")
-                    game.setValue(gameEntity.rating, forKeyPath: "rating")
-                    game.setValue(gameEntity.released, forKeyPath: "released")
-                    try taskContext.save()
-                    completion()
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
-            }
-        }
-    }
-    
-    func updateGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Member")
-            fetchRequest.fetchLimit = 1
-            fetchRequest.predicate = NSPredicate(format: "id == \(gameEntity.gameId)")
-            if let result = try? taskContext.fetch(fetchRequest), let game = result.first as? Game {
-                do {
-                    game.setValue(gameEntity.title, forKeyPath: "title")
-                    game.setValue(gameEntity.imageUrl, forKeyPath: "imageUrl")
-                    game.setValue(gameEntity.rating, forKeyPath: "rating")
-                    game.setValue(gameEntity.released, forKeyPath: "released")
-                    try taskContext.save()
-                    completion()
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
-            }
-        }
-    }
-    
-    func deleteGame(gameId: Int, completion: @escaping() -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.CONTAINER)
-            fetchRequest.fetchLimit = 1
-            fetchRequest.predicate = NSPredicate(format: "gameId == \(gameId)")
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            batchDeleteRequest.resultType = .resultTypeCount
-            if let batchDeleteResult = try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult {
-                if batchDeleteResult.result != nil {
-                    completion()
-                }
-            }
-        }
-    }
-    
+    func getGame() -> AnyPublisher<[GameEntity], Error>
+    func getFavGame() -> AnyPublisher<[GameEntity], Error>
+    func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error>
+    func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
+    func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
+    func deleteGame(gameId: Int) -> AnyPublisher<Bool, Error>
 }
 
-extension GameDbProvider {
+final class GameDbProvider: NSObject {
+    private let realm: Realm?
     
-    private func getMaxId(completion: @escaping(_ maxId: Int) -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.performAndWait {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: self.CONTAINER)
-            let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-            fetchRequest.sortDescriptors = [sortDescriptor]
-            fetchRequest.fetchLimit = 1
-            do {
-                let lastGames = try taskContext.fetch(fetchRequest)
-                if let game = lastGames.first, let position = game.value(forKeyPath: "id") as? Int {
-                    completion(position)
-                } else {
-                    completion(0)
-                }
-            } catch {
-                print(error.localizedDescription)
+    private init(realm: Realm?) {
+        self.realm = realm
+    }
+    
+    static let sharedInstance: (Realm?) -> GameDbProvider = { realmDatabase in
+        return GameDbProvider(realm: realmDatabase)
+    }
+}
+
+
+extension GameDbProvider: GameDbProviderProtocol {
+    
+    func getGame() -> AnyPublisher<[GameEntity], Error> {
+        return Future<[GameEntity], Error> { completion in
+            if let realm = self.realm {
+                let categories: Results<GameEntity> = {
+                    realm.objects(GameEntity.self)
+                        .sorted(byKeyPath: "title", ascending: true)
+                }()
+                completion(.success(categories.toArray(ofType: GameEntity.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance("Database can't instance.")))
             }
-        }
+        }.eraseToAnyPublisher()
+    }
+    
+    func getFavGame() -> AnyPublisher<[GameEntity], Error> {
+        return Future<[GameEntity], Error> { completion in
+            if let realm = self.realm {
+                let categories: Results<GameEntity> = {
+                    realm.objects(GameEntity.self)
+                        .sorted(byKeyPath: "title", ascending: true)
+                }()
+                completion(.success(categories.toArray(ofType: GameEntity.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance("Database can't instance.")))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error> {
+        return Future<[GameEntity], Error> { completion in
+            if let realm = self.realm {
+                let categories: Results<GameEntity> = {
+                    realm.objects(GameEntity.self)
+                        .sorted(byKeyPath: "title", ascending: true)
+                        .where {
+                            $0.gameId == gameId
+                        }
+                }()
+                completion(.success(categories.toArray(ofType: GameEntity.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        realm.add(gameEntity)
+                        completion(.success(true))
+                    }
+                } catch let err {
+                    completion(.failure(DatabaseError.requestFailed(err.localizedDescription)))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    let favGame = realm.objects(GameEntity.self).where {
+                        $0.gameId == gameEntity.gameId
+                    }
+                    if let game = favGame.first {
+                        try realm.write {
+                            game.title = gameEntity.title
+                            game.imageUrl = gameEntity.imageUrl
+                            game.rating = gameEntity.rating
+                            game.released = gameEntity.released
+                        }
+                        completion(.success(true))
+                    } else {
+                        completion(.failure(DatabaseError.requestFailed("data not found")))
+                    }
+                } catch let err {
+                    completion(.failure(DatabaseError.requestFailed(err.localizedDescription)))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func deleteGame(gameId: Int) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    let favGame = realm.objects(GameEntity.self).where {
+                        $0.gameId == gameId
+                    }
+                    if let game = favGame.first {
+                        try realm.delete(game)
+                        completion(.success(true))
+                    } else {
+                        completion(.failure(DatabaseError.requestFailed("data not found")))
+                    }
+                } catch let err {
+                    completion(.failure(DatabaseError.requestFailed(err.localizedDescription)))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
     }
     
 }

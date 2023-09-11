@@ -29,8 +29,14 @@ class LocalDataSource: NSObject {
 
 extension LocalDataSource: LocalDataSourceProtocol {
     
+    func getGames(completion: @escaping ([GameEntity]) -> Void) {
+        provider.getFavGame { result in
+            completion(result)
+        }
+    }
+    
     func getFavGames(completion: @escaping ([GameEntity]) -> Void) {
-        provider.getAllGame { result in
+        provider.getFvGame { result in
             completion(result)
         }
     }

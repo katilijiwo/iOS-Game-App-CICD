@@ -47,6 +47,7 @@
 		1617DA6F2AA76B6500728941 /* GameDbProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617DA6E2AA76B6500728941 /* GameDbProvider.swift */; };
 		1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */; };
 		16813A202AAA2D13002D5378 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16813A1E2AAA2D13002D5378 /* Game.swift */; };
+		16865AB42AAECC2C00E541BA /* Results+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16865AB32AAECC2C00E541BA /* Results+Ext.swift */; };
 		168DC4FE2AAC60230039AAF6 /* GameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DC4FD2AAC60230039AAF6 /* GameUseCase.swift */; };
 		16D7A3232AADB6A1003EEA57 /* GameDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7A3222AADB6A1003EEA57 /* GameDetailUseCase.swift */; };
 		B465BD2C32C3E1F8EF2E64FA /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2615F9F5F573B180A6F263 /* Pods_Rawg_Io_API.framework */; };
@@ -95,6 +96,7 @@
 		1617DA6E2AA76B6500728941 /* GameDbProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDbProvider.swift; sourceTree = "<group>"; };
 		1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		16813A1E2AAA2D13002D5378 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Game.swift; path = "Rawg Io API/Core/Data/Local/Entity/Game.swift"; sourceTree = SOURCE_ROOT; };
+		16865AB32AAECC2C00E541BA /* Results+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Ext.swift"; sourceTree = "<group>"; };
 		168DC4FD2AAC60230039AAF6 /* GameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUseCase.swift; sourceTree = "<group>"; };
 		16D7A3222AADB6A1003EEA57 /* GameDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailUseCase.swift; sourceTree = "<group>"; };
 		572F76E0F909F5158BAB0540 /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				04CABEB22A9387290033A80B /* UIImageView+Ext.swift */,
 				042E96462A939A0400A6EFAC /* UIView+Ext.swift */,
 				04EFA66D2A94FCC800A6EDE4 /* String+Ext.swift */,
+				16865AB32AAECC2C00E541BA /* Results+Ext.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			files = (
 				042E96472A939A0400A6EFAC /* UIView+Ext.swift in Sources */,
 				042E96452A93990C00A6EFAC /* RoundedImageView.swift in Sources */,
+				16865AB42AAECC2C00E541BA /* Results+Ext.swift in Sources */,
 				04CABEB62A9388210033A80B /* ListGameViewTableCell.swift in Sources */,
 				049EABDD2A91241F00FFFA66 /* Injection.swift in Sources */,
 				049EABD02A9102EE00FFFA66 /* NetworkUtil.swift in Sources */,

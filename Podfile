@@ -8,6 +8,8 @@ target 'Rawg Io API' do
   # Pods for Rawg Io API
   pod 'SDWebImage', '~> 5.0'
   pod 'MaterialComponents/Snackbar'
+  pod 'Alamofire'
+  pod 'RealmSwift', '~>10'
 
   post_install do |installer|
     installer.generated_projects.each do |project|

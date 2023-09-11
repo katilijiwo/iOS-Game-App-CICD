@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Alamofire
+import Combine
 
 protocol RemoteDataSourceProtocol: AnyObject {
-    func getGameList(result: @escaping (Result<[GameItemResponse], URLError>) -> Void)
-    func getGameDetail(gameId: Int, result: @escaping (Result<GameDetailResponse, URLError>) -> Void)
+    func getGameList() -> AnyPublisher<[GameItemResponse], Error>
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailResponse, Error>
 }
 
 final class RemoteDataSource: NSObject {
@@ -20,40 +22,38 @@ final class RemoteDataSource: NSObject {
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
     
-    func getGameList(result: @escaping (Result<[GameItemResponse], URLError>) -> Void) {
-        guard let url = URL(string: Endpoints.Gets.listGame.url) else { return }
-        let task = URLSession.shared.dataTask(with: url) {data, response, err in
-            if err != nil || data == nil {
-                result(.failure(.addressUnreachable(url)))
-                return
+    func getGameList() -> AnyPublisher<[GameItemResponse], Error> {
+        return Future<[GameItemResponse], Error> { completion in
+            if let url = URL(string: Endpoints.Gets.listGame.url) {
+              AF.request(url)
+                .validate()
+                .responseDecodable(of: GameResponse.self) { response in
+                  switch response.result {
+                  case .success(let value):
+                      completion(.success(value.results))
+                  case .failure(let error):
+                      completion(.failure(URLError.invalidResponse(error.localizedDescription)))
+                  }
+                }
             }
-            do {
-                let decoder = JSONDecoder()
-                let listGame = try decoder.decode(GameResponse.self, from: data!).results
-                result(.success(listGame))
-            } catch {
-                result(.failure(.invalidResponse(error.localizedDescription)))
-            }
-        }
-        task.resume()
+          }.eraseToAnyPublisher()
     }
     
-    func getGameDetail(gameId: Int, result: @escaping (Result<GameDetailResponse, URLError>) -> Void) {
-        guard let url = URL(string: Endpoints.Gets.detailGame(gameId: gameId).url) else { return }
-        let task = URLSession.shared.dataTask(with: url) {data, response, err in
-            if err != nil || data == nil {
-                result(.failure(.addressUnreachable(url)))
-                return
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailResponse, Error> {
+        return Future<GameDetailResponse, Error> { completion in
+            if let url = URL(string: Endpoints.Gets.detailGame(gameId: gameId).url) {
+              AF.request(url)
+                .validate()
+                .responseDecodable(of: GameDetailResponse.self) { response in
+                  switch response.result {
+                  case .success(let value):
+                      completion(.success(value))
+                  case .failure(let error):
+                      completion(.failure(URLError.invalidResponse(error.localizedDescription)))
+                  }
+                }
             }
-            do {
-                let decoder = JSONDecoder()
-                let game = try decoder.decode(GameDetailResponse.self, from: data!)
-                result(.success(game))
-            } catch {
-                result(.failure(.invalidResponse(error.localizedDescription)))
-            }
-        }
-        task.resume()
+          }.eraseToAnyPublisher()
     }
     
 }

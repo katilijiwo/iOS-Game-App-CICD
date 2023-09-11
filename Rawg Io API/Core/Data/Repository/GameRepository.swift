@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol GameRepositoryProtocol {
     func getListGame(result: @escaping (Result<[GameModel], Error>) -> Void)
@@ -35,6 +36,26 @@ final class GameRepository: NSObject {
 }
 
 extension GameRepository: GameRepositoryProtocol {
+    
+    func getCategories() -> AnyPublisher<[GameModel], Error> {
+      return self.local.getGameList()
+        .flatMap { result -> AnyPublisher<[CategoryModel], Error> in
+          if result.isEmpty {
+            return self.local.getCategories()
+              .map { CategoryMapper.mapCategoryResponsesToEntities(input: $0) }
+              .flatMap { self.locale.addCategories(from: $0) }
+              .filter { $0 }
+              .flatMap { _ in self.locale.getCategories()
+                .map { CategoryMapper.mapCategoryEntitiesToDomains(input: $0) }
+              }
+              .eraseToAnyPublisher()
+          } else {
+            return self.locale.getCategories()
+              .map { CategoryMapper.mapCategoryEntitiesToDomains(input: $0) }
+              .eraseToAnyPublisher()
+          }
+        }.eraseToAnyPublisher()
+    }
     
     func getListGame(result: @escaping (Result<[GameModel], Error>) -> Void) {
         self.remote.getGameList { remoteResponses in
