@@ -6,75 +6,80 @@
 //
 
 import Foundation
+import Combine
 
 protocol LocalDataSourceProtocol: AnyObject {
-    func getFavGames(completion: @escaping ([GameEntity]) -> Void)
-    func getFavGamesById(id: Int, completion: @escaping (GameEntity?) -> Void)
-    func insertGame(gameEntity: GameEntity, completion: @escaping() -> Void)
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
+    func getGame() -> AnyPublisher<[GameEntity], Error>
+    func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error>
+    func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
+    func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
+    func deleteGame(gameId: Int) -> AnyPublisher<Bool, Error>
+    
+    func getFavGames() -> AnyPublisher<[FavGameEntity], Error>
+    func getFavGamesById(id: Int) -> AnyPublisher<FavGameEntity?, Error>
+    func insertFavGame(favGameEntity: FavGameEntity) -> AnyPublisher<Bool, Error>
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error>
 }
 
 class LocalDataSource: NSObject {
-    typealias LocalDataSourceInstance = (GameDbProvider) -> LocalDataSource
+    typealias LocalDataSourceInstance = (GameDbProvider, FavGameDbProvider) -> LocalDataSource
     
-    private let provider: GameDbProvider
+    private let gameDbProvider: GameDbProvider
+    private let favGameDbProvider: FavGameDbProvider
     
-    init(provider: GameDbProvider) {
-        self.provider = provider
+    init(gameDbProvider: GameDbProvider, favGameDbProvider: FavGameDbProvider) {
+        self.gameDbProvider = gameDbProvider
+        self.favGameDbProvider = favGameDbProvider
     }
-    static let sharedInstance: LocalDataSourceInstance = { provider in
-        return LocalDataSource(provider: provider)
+    static let sharedInstance: LocalDataSourceInstance = { gameDbProvider, favGameDbProvider in
+        return LocalDataSource(gameDbProvider: gameDbProvider, favGameDbProvider: favGameDbProvider)
     }
 }
 
 extension LocalDataSource: LocalDataSourceProtocol {
     
-    func getGames(completion: @escaping ([GameEntity]) -> Void) {
-        provider.getFavGame { result in
-            completion(result)
-        }
+    //MARK: Game
+    
+    func getGame() -> AnyPublisher<[GameEntity], Error> {
+        return gameDbProvider.getGame()
     }
     
-    func getFavGames(completion: @escaping ([GameEntity]) -> Void) {
-        provider.getFvGame { result in
-            completion(result)
-        }
+    func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error> {
+        return gameDbProvider.getGameById(gameId: gameId)
     }
     
-    func getFavGamesById(id: Int, completion: @escaping (GameEntity?) -> Void) {
-        provider.getGameById(gameId: id, completion: { result in
-            completion(result)
-        })
+    func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {
+        return gameDbProvider.insertGame(gameEntity: gameEntity)
     }
     
-    func insertGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
-        provider.insertGame(
-            gameEntity: gameEntity,
-            completion: {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
-        )
+    func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {
+        return gameDbProvider.updateGame(gameEntity: gameEntity)
     }
     
-    func updateGame(gameEntity: GameEntity, completion: @escaping() -> Void) {
-        provider.updateGame(
-            gameEntity: gameEntity,
-            completion: {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
-        )
+    func deleteGame(gameId: Int) -> AnyPublisher<Bool, Error> {
+        return gameDbProvider.deleteGame(gameId: gameId)
     }
     
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void) {
-        provider.deleteGame(gameId: gameId, completion: {
-            DispatchQueue.main.async {
-                completion()
-            }
-        })
+    //MARK: Fav Game
+    
+    func insertFavGame(favGameEntity: FavGameEntity) -> AnyPublisher<Bool, Error> {
+        return favGameDbProvider.insertFavGame(favGameEntity: favGameEntity)
+    }
+    
+    func updateFavGame(favGameEntity: FavGameEntity) -> AnyPublisher<Bool, Error> {
+        return favGameDbProvider.updateFavGame(favGameEntity: favGameEntity)
+    }
+    
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error> {
+        return favGameDbProvider.deleteFavGame(gameId: gameId)
+    }
+    
+    func getFavGames() -> AnyPublisher<[FavGameEntity], Error> {
+        return favGameDbProvider.getFavGame()
+    }
+    
+    func getFavGamesById(id: Int) -> AnyPublisher<FavGameEntity?, Error> {
+        return favGameDbProvider.getFavGameById(gameId: id)
     }
 }
 

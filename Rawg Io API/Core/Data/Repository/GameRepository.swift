@@ -9,13 +9,13 @@ import Foundation
 import Combine
 
 protocol GameRepositoryProtocol {
-    func getListGame(result: @escaping (Result<[GameModel], Error>) -> Void)
-    func getGameDetail(gameId: Int, result: @escaping (Result<GameDetailModel, Error>) -> Void)
-    func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void)
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
-    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void)
-    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void)
-    func getFavGames(completion: @escaping ([GameModel]?) -> Void)
+    func getListGame() -> AnyPublisher<[GameModel], Error>
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error>
+    func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error>
+    func updateFaveGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
+    func getFavGamesById(id: Int) -> AnyPublisher<GameModel?, Error>
+    func getFavGames() -> AnyPublisher<[GameModel]?, Error>
 }
 
 final class GameRepository: NSObject {
@@ -37,88 +37,71 @@ final class GameRepository: NSObject {
 
 extension GameRepository: GameRepositoryProtocol {
     
-    func getCategories() -> AnyPublisher<[GameModel], Error> {
-      return self.local.getGameList()
-        .flatMap { result -> AnyPublisher<[CategoryModel], Error> in
-          if result.isEmpty {
-            return self.local.getCategories()
-              .map { CategoryMapper.mapCategoryResponsesToEntities(input: $0) }
-              .flatMap { self.locale.addCategories(from: $0) }
-              .filter { $0 }
-              .flatMap { _ in self.locale.getCategories()
-                .map { CategoryMapper.mapCategoryEntitiesToDomains(input: $0) }
-              }
-              .eraseToAnyPublisher()
-          } else {
-            return self.locale.getCategories()
-              .map { CategoryMapper.mapCategoryEntitiesToDomains(input: $0) }
-              .eraseToAnyPublisher()
-          }
-        }.eraseToAnyPublisher()
+    func getListGame() -> AnyPublisher<[GameModel], Error> {
+        return self.local.getGame()
+            .flatMap { result -> AnyPublisher<[GameModel], Error> in
+                if result.isEmpty {
+                    return self.remote.getGameList()
+                        .map {
+                            mapGameEntity(responses: $0)
+                        }
+                        .map {
+                            $0.forEach { entity in
+                                self.local.insertGame(gameEntity: entity)
+                            }
+                        }
+                        .flatMap {
+                            self.local.getGame()
+                        }
+                        .map {
+                            mapGame(entity: $0) ?? []
+                        }
+                        .eraseToAnyPublisher()
+                } else {
+                    return self.local.getGame()
+                        .map {
+                            mapGame(entity: $0) ?? []
+                        }
+                        .eraseToAnyPublisher()
+                }
+            }.eraseToAnyPublisher()
     }
     
-    func getListGame(result: @escaping (Result<[GameModel], Error>) -> Void) {
-        self.remote.getGameList { remoteResponses in
-            switch remoteResponses {
-            case .success(let response):
-                let gameDetail = mapGame(input: response)
-                result(.success(gameDetail))
-            case .failure(let error):
-                result(.failure(error))
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error> {
+        return self.remote.getGameDetail(gameId: gameId)
+            .map {
+                mapGameDetail(input: $0)
             }
-        }
+            .eraseToAnyPublisher()
     }
     
-    func getGameDetail(gameId: Int, result: @escaping (Result<GameDetailModel, Error>) -> Void) {
-        self.remote.getGameDetail(gameId: gameId) { remoteResponses in
-            switch remoteResponses {
-            case .success(let response):
-                let gameDetail = mapGameDetail(input: response)
-                result(.success(gameDetail))
-            case .failure(let error):
-                result(.failure(error))
+    func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error> {
+        let favGameEntity = mapFavGameEntity(input: gameModel)
+        return self.local.insertFavGame(favGameEntity: favGameEntity)
+    }
+    
+    func updateFaveGame(gameModel: GameModel) -> AnyPublisher<Bool, Error> {
+        let favGameEntity = mapFavGameEntity(input: gameModel)
+        return self.local.updateFavGame(favGameEntity: favGameEntity)
+    }
+    
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error> {
+        return self.local.deleteFavGame(gameId: gameId)
+    }
+    
+    func getFavGamesById(id: Int) -> AnyPublisher<GameModel?, Error> {
+        return self.local.getFavGamesById(id: id)
+            .map {
+                mapGame(favGamEntity: $0)
             }
-        }
+            .eraseToAnyPublisher()
     }
     
-    func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void) {
-        self.local.insertGame(
-            gameEntity: mapGameEntity(input: gameModel),
-            completion: {
-                completion()
+    func getFavGames() -> AnyPublisher<[GameModel]?, Error> {
+        return self.local.getFavGames()
+            .map {
+                mapGame(favGamEntity: $0)
             }
-        )
-    }
-    
-    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void) {
-        self.local.updateGame(
-            gameEntity: mapGameEntity(input: gameModel),
-            completion: {
-                completion()
-            }
-        )
-    }
-    
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void) {
-        self.local.deleteFavGame(
-            gameId: gameId,
-            completion: {
-                completion()
-            }
-        )
-    }
-    
-    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void) {
-        self.local.getFavGamesById(id: id, completion: { result in
-            let gameModel = mapGame(input: result)
-            completion(gameModel)
-        })
-    }
-    
-    func getFavGames(completion: @escaping ([GameModel]?) -> Void) {
-        self.local.getFavGames(completion: { result in
-            let gameModel = mapGame(input: result)
-            completion(gameModel)
-        })
+            .eraseToAnyPublisher()
     }
 }

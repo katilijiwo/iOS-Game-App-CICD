@@ -27,10 +27,34 @@ func mapGame(input response: [GameItemResponse]) -> [GameModel] {
     }
 }
 
-func mapGame(input entity: [GameEntity]?) -> [GameModel]? {
+func mapGame(entity: [GameEntity]?) -> [GameModel]? {
     guard entity != nil else { return nil }
     return entity!.map { result in
          GameModel(
+            id: result.gameId,
+            title: result.title,
+            imageUrl: result.imageUrl,
+            rating: result.rating,
+            released: result.released
+        )
+    }
+}
+
+func mapGame(input entity: GameEntity?) -> GameModel? {
+    guard entity != nil else { return nil }
+    return GameModel(
+        id: entity?.gameId ?? 0,
+        title: entity?.title ?? "",
+        imageUrl: entity?.imageUrl ?? "",
+        rating: entity?.rating ?? 0.0,
+        released: entity?.released ?? ""
+    )
+}
+
+func mapGame(favGamEntity entity: [FavGameEntity]?) -> [GameModel]? {
+    guard entity != nil else { return nil }
+    return entity!.map { result in
+        GameModel(
             id: result.gameId ?? 0,
             title: result.title ?? "",
             imageUrl: result.imageUrl ?? "",
@@ -40,7 +64,7 @@ func mapGame(input entity: [GameEntity]?) -> [GameModel]? {
     }
 }
 
-func mapGame(input entity: GameEntity?) -> GameModel? {
+func mapGame(favGamEntity entity: FavGameEntity?) -> GameModel? {
     guard entity != nil else { return nil }
     return GameModel(
         id: entity?.gameId ?? 0,

@@ -91,15 +91,13 @@ class DetailGameViewController: UIViewController {
             showIndicator(isHidden: false)
             break
         case .result(let data):
-            DispatchQueue.main.sync {
-                isGameFav = data != nil
-                if(data != nil) {
-                    loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
-                    loveImg.tintColor = UIColor.red
-                } else {
-                    loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
-                    loveImg.tintColor = UIColor.black
-                }
+            isGameFav = data != nil
+            if(data != nil) {
+                loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
+                loveImg.tintColor = UIColor.red
+            } else {
+                loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
+                loveImg.tintColor = UIColor.black
             }
             showIndicator(isHidden: true)
             break

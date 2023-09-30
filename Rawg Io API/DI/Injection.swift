@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class Injection: NSObject {
     
     func provideRepository() -> GameRepositoryProtocol {
+        let realm = try? Realm()
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
-        let gameProvider: GameDbProvider = GameDbProvider.sharedInstance
-        let local: LocalDataSource = LocalDataSource.sharedInstance(gameProvider)
+        let gameProvider: GameDbProvider = GameDbProvider.sharedInstance(realm)
+        let favGameProvider: FavGameDbProvider = FavGameDbProvider.sharedInstance(realm)
+        let local: LocalDataSource = LocalDataSource.sharedInstance(gameProvider, favGameProvider)
         return GameRepository.sharedInstance(remote, local)
     }
     

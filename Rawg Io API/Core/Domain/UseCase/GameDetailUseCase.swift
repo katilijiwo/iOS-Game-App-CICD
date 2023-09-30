@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 
 protocol GameDetailUseCaseProtocol {
     func getGameDetail(gameId: Int, completion: @escaping (Result<GameDetailModel, Error>) -> Void)
@@ -34,54 +34,31 @@ final class GameDetailUseCase: NSObject {
 
 extension GameDetailUseCase: GameUseCaseProtocol {
     
-    func getListGame(completion: @escaping (Result<[GameModel], Error>) -> Void) {
-        repository.getListGame { result in
-            completion(result)
-        }
+    func getListGame() -> AnyPublisher<[GameModel], Error> {
+        return repository.getListGame()
     }
     
-    func getGameDetail(gameId: Int, completion: @escaping (Result<GameDetailModel, Error>) -> Void) {
-        repository.getGameDetail(gameId: gameId) { remoteResponses in
-            completion(remoteResponses)
-        }
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error> {
+        return repository.getGameDetail(gameId: gameId)
     }
     
-    func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void) {
-        repository.insertFavGame(
-            gameModel: gameModel,
-            completion: {
-                completion()
-            }
-        )
+    func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error> {
+        return repository.insertFavGame(gameModel: gameModel)
     }
     
-    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void) {
-        repository.updateFaveGame(
-            gameModel: gameModel,
-            completion: {
-                completion()
-            }
-        )
+    func updateFaveGame(gameModel: GameModel) -> AnyPublisher<Bool, Error> {
+        return repository.updateFaveGame(gameModel: gameModel)
     }
     
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void) {
-        repository.deleteFavGame(
-            gameId: gameId,
-            completion: {
-                completion()
-            }
-        )
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error> {
+        return repository.deleteFavGame(gameId: gameId)
     }
     
-    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void) {
-        repository.getFavGamesById(id: id, completion: { result in
-            completion(result)
-        })
+    func getFavGamesById(id: Int) -> AnyPublisher<GameModel?, Error> {
+        return repository.getFavGamesById(id: id)
     }
     
-    func getFavGames(completion: @escaping ([GameModel]?) -> Void) {
-        repository.getFavGames(completion: { result in
-            completion(result)
-        })
+    func getFavGames() -> AnyPublisher<[GameModel]?, Error> {
+        return repository.getFavGames()
     }
 }

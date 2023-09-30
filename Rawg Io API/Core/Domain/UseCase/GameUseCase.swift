@@ -6,10 +6,10 @@
 //
 
 import Foundation
-
+import Combine
 
 protocol GameUseCaseProtocol {
-    func getListGame(completion: @escaping (Result<[GameModel], Error>) -> Void) async
+    func getListGame() -> AnyPublisher<[GameModel], Error>
 }
 
 final class GameUseCase: NSObject {
@@ -29,10 +29,8 @@ final class GameUseCase: NSObject {
 
 extension GameUseCase: GameUseCaseProtocol {
     
-    func getListGame(completion: @escaping (Result<[GameModel], Error>) -> Void) {
-        repository.getListGame { result in
-            completion(result)
-        }
+    func getListGame() -> AnyPublisher<[GameModel], Error> {
+        return repository.getListGame()
     }
     
 }

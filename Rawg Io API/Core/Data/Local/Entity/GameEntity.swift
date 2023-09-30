@@ -1,8 +1,8 @@
 //
-//  GameModel.swift
+//  GameEntity.swift
 //  Rawg Io API
 //
-//  Created by koinworks on 05/09/23.
+//  Created by koinworks on 11/09/23.
 //
 
 import Foundation
@@ -17,6 +17,10 @@ class GameEntity: Object {
     
     override static func primaryKey() -> String? {
       return "gameId"
+    }
+    
+    override init() {
+        
     }
     
     init(gameId: Int, title: String, imageUrl: String, rating: Double, released: String) {
@@ -38,3 +42,35 @@ func mapGameEntity(input model: GameModel) -> GameEntity {
     )
 }
 
+func mapGameEntity(response: GameItemResponse) -> GameEntity {
+    return GameEntity(
+        gameId: response.id ?? 0,
+        title: response.name ?? "",
+        imageUrl: response.backgroundImage ?? "",
+        rating: response.rating ?? 0.0,
+        released: response.released ?? ""
+    )
+}
+
+
+func mapGameEntity(responses: [GameItemResponse]) -> [GameEntity] {
+    return responses.map { response in
+          GameEntity(
+            gameId: response.id ?? 0,
+            title: response.name ?? "",
+            imageUrl: response.backgroundImage ?? "",
+            rating: response.rating ?? 0.0,
+            released: response.released ?? ""
+        )
+    }
+}
+
+func mapGameEntity(detailResponse: GameDetailResponse) -> GameEntity {
+    return GameEntity(
+        gameId: detailResponse.id ?? 0,
+        title: detailResponse.name ?? "",
+        imageUrl: detailResponse.backgroundImage ?? "",
+        rating: detailResponse.rating ?? 0.0,
+        released: detailResponse.released ?? ""
+    )
+}
