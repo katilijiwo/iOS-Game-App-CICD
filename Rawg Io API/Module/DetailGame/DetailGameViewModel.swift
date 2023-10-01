@@ -35,7 +35,11 @@ class DetailGameViewModel {
               }
             }, receiveValue: { game in
                 DispatchQueue.main.async {
-                    self.didGetGame?(Status<GameDetailModel>.type.result(game))
+                    if(game != nil) {
+                        self.didGetGame?(Status<GameDetailModel>.type.result(game!))
+                    } else {
+                        self.didGetGame?(Status<GameDetailModel>.type.error("Something went wrong"))
+                    }
                 }
             })
             .store(in: &cancellables)

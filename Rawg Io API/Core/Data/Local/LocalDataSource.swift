@@ -11,6 +11,7 @@ import Combine
 protocol LocalDataSourceProtocol: AnyObject {
     func getGame() -> AnyPublisher<[GameEntity], Error>
     func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error>
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailEntity?, Error>
     func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
     func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error>
     func deleteGame(gameId: Int) -> AnyPublisher<Bool, Error>
@@ -48,8 +49,16 @@ extension LocalDataSource: LocalDataSourceProtocol {
         return gameDbProvider.getGameById(gameId: gameId)
     }
     
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailEntity?, Error> {
+        return gameDbProvider.getGameDetail(gameId: gameId)
+    }
+    
     func insertGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {
         return gameDbProvider.insertGame(gameEntity: gameEntity)
+    }
+    
+    func insertGameDetail(gameDetailEntity: GameDetailEntity) -> AnyPublisher<Bool, Error> {
+        return gameDbProvider.insertGameDetail(gameDetailEntity: gameDetailEntity)
     }
     
     func updateGame(gameEntity: GameEntity) -> AnyPublisher<Bool, Error> {

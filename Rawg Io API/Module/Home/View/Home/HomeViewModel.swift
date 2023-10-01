@@ -18,7 +18,7 @@ class HomeViewModel {
         self.gameUseCase = gameUseCase
     }
     
-    func getCategories() {
+    func getGames() {
         self.didGetListGame?(Status<[GameModel]>.type.loading)
         gameUseCase.getListGame()
             .receive(on: RunLoop.main)

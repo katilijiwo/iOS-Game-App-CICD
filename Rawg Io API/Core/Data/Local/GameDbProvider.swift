@@ -36,11 +36,11 @@ extension GameDbProvider: GameDbProviderProtocol {
     func getGame() -> AnyPublisher<[GameEntity], Error> {
         return Future<[GameEntity], Error> { completion in
             if let realm = self.realm {
-                let categories: Results<GameEntity> = {
+                let game: Results<GameEntity> = {
                     realm.objects(GameEntity.self)
                         .sorted(byKeyPath: "title", ascending: true)
                 }()
-                completion(.success(categories.toArray(ofType: GameEntity.self)))
+                completion(.success(game.toArray(ofType: GameEntity.self)))
             } else {
                 completion(.failure(DatabaseError.invalidInstance("Database can't instance.")))
             }
@@ -50,14 +50,31 @@ extension GameDbProvider: GameDbProviderProtocol {
     func getGameById(gameId: Int) -> AnyPublisher<[GameEntity], Error> {
         return Future<[GameEntity], Error> { completion in
             if let realm = self.realm {
-                let categories: Results<GameEntity> = {
+                let game: Results<GameEntity> = {
                     realm.objects(GameEntity.self)
                         .sorted(byKeyPath: "title", ascending: true)
                         .where {
                             $0.gameId == gameId
                         }
                 }()
-                completion(.success(categories.toArray(ofType: GameEntity.self)))
+                completion(.success(game.toArray(ofType: GameEntity.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailEntity?, Error> {
+        return Future<GameDetailEntity?, Error> { completion in
+            if let realm = self.realm {
+                let gameDetail: Results<GameDetailEntity> = {
+                    realm.objects(GameDetailEntity.self)
+                        .sorted(byKeyPath: "name", ascending: true)
+                        .where {
+                            $0.id == gameId
+                        }
+                }()
+                completion(.success(gameDetail.first))
             } else {
                 completion(.failure(DatabaseError.invalidInstance()))
             }
@@ -92,6 +109,23 @@ extension GameDbProvider: GameDbProviderProtocol {
                 do {
                     try realm.write {
                         realm.add(gameEntity)
+                        completion(.success(true))
+                    }
+                } catch let err {
+                    completion(.failure(DatabaseError.requestFailed(err.localizedDescription)))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance()))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func insertGameDetail(gameDetailEntity: GameDetailEntity) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        realm.add(gameDetailEntity)
                         completion(.success(true))
                     }
                 } catch let err {

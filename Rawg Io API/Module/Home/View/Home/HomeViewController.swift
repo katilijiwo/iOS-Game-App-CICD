@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         setupView()
         setupTableView()
-        viewModel.getCategories()
+        viewModel.getGames()
         showIndicator(isHidden: false)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

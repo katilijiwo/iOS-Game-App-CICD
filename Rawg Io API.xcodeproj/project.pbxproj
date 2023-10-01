@@ -45,7 +45,7 @@
 		1617DA682AA75D3C00728941 /* FavGameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617DA672AA75D3C00728941 /* FavGameEntity.swift */; };
 		1617DA6F2AA76B6500728941 /* FavGameDbProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617DA6E2AA76B6500728941 /* FavGameDbProvider.swift */; };
 		1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */; };
-		16813A202AAA2D13002D5378 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16813A1E2AAA2D13002D5378 /* Game.swift */; };
+		163C991C2AC94CC7002F853C /* GameDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C991B2AC94CC7002F853C /* GameDetailEntity.swift */; };
 		16865AB42AAECC2C00E541BA /* Results+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16865AB32AAECC2C00E541BA /* Results+Ext.swift */; };
 		16865AB62AAEDCF000E541BA /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16865AB52AAEDCF000E541BA /* GameEntity.swift */; };
 		16865AB82AAEDDE200E541BA /* GameDbProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16865AB72AAEDDE200E541BA /* GameDbProvider.swift */; };
@@ -95,7 +95,7 @@
 		1617DA672AA75D3C00728941 /* FavGameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGameEntity.swift; sourceTree = "<group>"; };
 		1617DA6E2AA76B6500728941 /* FavGameDbProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGameDbProvider.swift; sourceTree = "<group>"; };
 		1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
-		16813A1E2AAA2D13002D5378 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Game.swift; path = "Rawg Io API/Core/Data/Local/Entity/Game.swift"; sourceTree = SOURCE_ROOT; };
+		163C991B2AC94CC7002F853C /* GameDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailEntity.swift; sourceTree = "<group>"; };
 		16865AB32AAECC2C00E541BA /* Results+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Ext.swift"; sourceTree = "<group>"; };
 		16865AB52AAEDCF000E541BA /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		16865AB72AAEDDE200E541BA /* GameDbProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDbProvider.swift; sourceTree = "<group>"; };
@@ -373,9 +373,9 @@
 		1617DA662AA75C7E00728941 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				16813A1E2AAA2D13002D5378 /* Game.swift */,
 				1617DA672AA75D3C00728941 /* FavGameEntity.swift */,
 				16865AB52AAEDCF000E541BA /* GameEntity.swift */,
+				163C991B2AC94CC7002F853C /* GameDetailEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -544,7 +544,6 @@
 				04EFA66E2A94FCC800A6EDE4 /* String+Ext.swift in Sources */,
 				049EABD32A91055D00FFFA66 /* CustomeError+Ext.swift in Sources */,
 				044494342A90AC8400B46974 /* HomeViewController.swift in Sources */,
-				16813A202AAA2D13002D5378 /* Game.swift in Sources */,
 				1617DA652AA75C4F00728941 /* LocalDataSource.swift in Sources */,
 				04940EB32AA5A7920056219B /* FavoriteViewController.swift in Sources */,
 				16D7A3232AADB6A1003EEA57 /* GameDetailUseCase.swift in Sources */,
@@ -554,6 +553,7 @@
 				044494302A90AC8400B46974 /* AppDelegate.swift in Sources */,
 				16865AB82AAEDDE200E541BA /* GameDbProvider.swift in Sources */,
 				044494322A90AC8400B46974 /* SceneDelegate.swift in Sources */,
+				163C991C2AC94CC7002F853C /* GameDetailEntity.swift in Sources */,
 				049EABD52A911A3400FFFA66 /* HomeViewModel.swift in Sources */,
 				049EABD82A911C6200FFFA66 /* ViewModelUtil.swift in Sources */,
 				049EABDA2A911FEC00FFFA66 /* UITableView+Extension.swift in Sources */,

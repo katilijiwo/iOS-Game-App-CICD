@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GameDetailUseCaseProtocol {
-    func getGameDetail(gameId: Int, completion: @escaping (Result<GameDetailModel, Error>) -> Void)
+    func getGameDetail(gameId: Int, completion: @escaping (Result<GameDetailModel?, Error>) -> Void)
     func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void)
     func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
     func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void)
@@ -38,7 +38,7 @@ extension GameDetailUseCase: GameUseCaseProtocol {
         return repository.getListGame()
     }
     
-    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error> {
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel?, Error> {
         return repository.getGameDetail(gameId: gameId)
     }
     

@@ -10,7 +10,7 @@ import Combine
 
 protocol GameRepositoryProtocol {
     func getListGame() -> AnyPublisher<[GameModel], Error>
-    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error>
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel?, Error>
     func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
     func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error>
     func updateFaveGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
@@ -67,12 +67,32 @@ extension GameRepository: GameRepositoryProtocol {
             }.eraseToAnyPublisher()
     }
     
-    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel, Error> {
-        return self.remote.getGameDetail(gameId: gameId)
-            .map {
-                mapGameDetail(input: $0)
-            }
-            .eraseToAnyPublisher()
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel?, Error> {
+        return self.local.getGameDetail(gameId: gameId)
+            .flatMap { result -> AnyPublisher<GameDetailModel?, Error> in
+                if result == nil {
+                    return self.remote.getGameDetail(gameId: gameId)
+                        .map {
+                            mapGameDetailEntity(input: $0)
+                        }
+                        .map {
+                            self.local.insertGameDetail(gameDetailEntity: $0)
+                        }
+                        .flatMap {
+                            self.local.getGameDetail(gameId: gameId)
+                        }
+                        .map {
+                            mapGameDetail(entity: $0) ?? nil
+                        }
+                        .eraseToAnyPublisher()
+                } else {
+                    return self.local.getGameDetail(gameId: gameId)
+                        .map {
+                            mapGameDetail(entity: $0) ?? nil
+                        }
+                        .eraseToAnyPublisher()
+                }
+            }.eraseToAnyPublisher()
     }
     
     func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error> {
