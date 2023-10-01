@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 protocol GameDetailUseCaseProtocol {
-    func getGameDetail(gameId: Int, completion: @escaping (Result<GameDetailModel?, Error>) -> Void)
-    func insertFavGame(gameModel: GameModel, completion: @escaping() -> Void)
-    func deleteFavGame(gameId: Int, completion: @escaping() -> Void)
-    func updateFaveGame(gameModel: GameModel, completion: @escaping() -> Void)
-    func getFavGamesById(id: Int, completion: @escaping (GameModel?) -> Void)
-    func getFavGames(completion: @escaping ([GameModel]?) -> Void)
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel?, Error>
+    func insertFavGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
+    func updateFaveGame(gameModel: GameModel) -> AnyPublisher<Bool, Error>
+    func deleteFavGame(gameId: Int) -> AnyPublisher<Bool, Error>
+    func getFavGamesById(id: Int) -> AnyPublisher<GameModel?, Error>
+    func getFavGames() -> AnyPublisher<[GameModel]?, Error>
 }
 
 final class GameDetailUseCase: NSObject {
@@ -32,11 +32,7 @@ final class GameDetailUseCase: NSObject {
     }
 }
 
-extension GameDetailUseCase: GameUseCaseProtocol {
-    
-    func getListGame() -> AnyPublisher<[GameModel], Error> {
-        return repository.getListGame()
-    }
+extension GameDetailUseCase: GameDetailUseCaseProtocol {
     
     func getGameDetail(gameId: Int) -> AnyPublisher<GameDetailModel?, Error> {
         return repository.getGameDetail(gameId: gameId)
