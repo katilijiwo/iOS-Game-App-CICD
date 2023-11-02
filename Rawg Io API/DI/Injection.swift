@@ -7,10 +7,11 @@
 
 import Foundation
 import RealmSwift
+import Core
 
-final class Injection: NSObject {
+public final class Injection: NSObject {
     
-    func provideRepository() -> GameRepositoryProtocol {
+    public func provideRepository() -> GameRepositoryProtocol {
         let realm = try? Realm()
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
         let gameProvider: GameDbProvider = GameDbProvider.sharedInstance(realm)
@@ -19,12 +20,12 @@ final class Injection: NSObject {
         return GameRepository.sharedInstance(remote, local)
     }
     
-    func provideGameUseCase() -> GameUseCase {
+    public func provideGameUseCase() -> GameUseCase {
         let repository = provideRepository()
         return GameUseCase.sharedInstance(repository)
     }
     
-    func provideGameDetailUseCase() -> GameDetailUseCase {
+    public func provideGameDetailUseCase() -> GameDetailUseCase {
         let repository = provideRepository()
         return GameDetailUseCase.sharedInstance(repository)
     }
