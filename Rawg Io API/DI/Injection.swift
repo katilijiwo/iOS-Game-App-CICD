@@ -11,8 +11,7 @@ import Core
 
 public final class Injection: NSObject {
     
-    public func provideRepository() -> GameRepositoryProtocol {
-        let realm = try? Realm()
+    public func provideRepository(realm: Realm) -> GameRepositoryProtocol {
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
         let gameProvider: GameDbProvider = GameDbProvider.sharedInstance(realm)
         let favGameProvider: FavGameDbProvider = FavGameDbProvider.sharedInstance(realm)
@@ -20,13 +19,13 @@ public final class Injection: NSObject {
         return GameRepository.sharedInstance(remote, local)
     }
     
-    public func provideGameUseCase() -> GameUseCase {
-        let repository = provideRepository()
+    public func provideGameUseCase(realm: Realm) -> GameUseCase {
+        let repository = provideRepository(realm: realm)
         return GameUseCase.sharedInstance(repository)
     }
     
-    public func provideGameDetailUseCase() -> GameDetailUseCase {
-        let repository = provideRepository()
+    public func provideGameDetailUseCase(realm: Realm) -> GameDetailUseCase {
+        let repository = provideRepository(realm: realm)
         return GameDetailUseCase.sharedInstance(repository)
     }
     

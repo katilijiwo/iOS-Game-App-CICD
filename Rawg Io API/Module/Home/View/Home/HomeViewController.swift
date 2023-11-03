@@ -18,7 +18,8 @@ class HomeViewController: UIViewController {
     private var listGame: [GameModel]? = nil
     
     private lazy var viewModel: HomeViewModel = {
-        let useCase = Injection.init().provideGameUseCase()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let useCase = Injection.init().provideGameUseCase(realm: appDelegate.realm)
         let vm = HomeViewModel(gameUseCase: useCase)
         vm.didGetListGame = didGetListGame
         return vm

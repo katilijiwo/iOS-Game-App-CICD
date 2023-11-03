@@ -29,7 +29,8 @@ class DetailGameViewController: UIViewController {
     private var isGameFav = false
     
     private lazy var viewModel: DetailGameViewModel = {
-        let useCase = Injection.init().provideGameDetailUseCase()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let useCase = Injection.init().provideGameDetailUseCase(realm: appDelegate.realm)
         let vm = DetailGameViewModel(gameDetailUseCase: useCase)
         vm.didGetGame = didGetGame
         vm.didFavGame = didFavGame
