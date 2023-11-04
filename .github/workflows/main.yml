@@ -36,8 +36,8 @@ jobs:
      # Runs a set of commands using the runners shell
      - name: build archive
        run: |
-         xcodebuild -scheme "Rawg io API" \
-         -archivePath /Users/koinworks/Xcode/"Rawg io API".xcarchive \
+         xcodebuild -scheme "Rawg Io API" \
+         -archivePath /Users/koinworks/Xcode/"Rawg Io API".xcarchive \
          -sdk iphoneos \
          -configuration Debug \
          -destination generic/platform=iOS \
