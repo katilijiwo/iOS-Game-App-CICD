@@ -36,8 +36,10 @@ jobs:
      # Runs a set of commands using the runners shell
      - name: build archive
        run: |
+         echo $SCHEME_NAME
+         echo $RUNNER_TEMP
          xcodebuild -scheme $SCHEME_NAME \
-         -archivePath $RUNNER_TEMP/iamgroot.xcarchive \
+         -archivePath $RUNNER_TEMP/$SCHEME_NAME.xcarchive \
          -sdk iphoneos \
          -configuration Debug \
          -destination generic/platform=iOS \
