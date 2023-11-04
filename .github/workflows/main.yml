@@ -39,7 +39,7 @@ jobs:
          echo $SCHEME_NAME
          echo $RUNNER_TEMP
          xcodebuild -scheme $SCHEME_NAME \
-         -archivePath $RUNNER_TEMP/$SCHEME_NAME.xcarchive \
+         -archivePath /Users/koinworks/Xcode/$SCHEME_NAME.xcarchive \
          -sdk iphoneos \
          -configuration Debug \
          -destination generic/platform=iOS \
