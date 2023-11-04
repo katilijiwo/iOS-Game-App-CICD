@@ -37,13 +37,11 @@ jobs:
          pod install --repo-update
 
      # Runs a set of commands using the runners shell
-      - name: build archive
-        run: |
-          xcodebuild -scheme $SCHEME_NAME \
-          -archivePath $RUNNER_TEMP/iamgroot.xcarchive \
-          -sdk iphoneos \
-          -configuration Debug \
-          -destination generic/platform=iOS \
-          clean archive          
-
-
+     - name: build archive
+       run: |
+         xcodebuild -scheme $SCHEME_NAME \
+         -archivePath $RUNNER_TEMP/iamgroot.xcarchive \
+         -sdk iphoneos \
+         -configuration Debug \
+         -destination generic/platform=iOS \
+         clean archive          
