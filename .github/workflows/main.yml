@@ -37,7 +37,7 @@ jobs:
      - name: build archive
        run: |
          xcodebuild -scheme "Rawg io API" \
-         -archivePath /Users/koinworks/Xcode/Rawg io API.xcarchive \
+         -archivePath /Users/koinworks/Xcode/"Rawg io API".xcarchive \
          -sdk iphoneos \
          -configuration Debug \
          -destination generic/platform=iOS \
