@@ -97,7 +97,8 @@ extension FavoriteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameId = Int(listGame?[indexPath.row].id ?? 0)
-        let vc = DetailGameViewsController.viewController
+        let vc = DetailGameViewsController()
+        vc.newInstance(gameId: gameId)
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
