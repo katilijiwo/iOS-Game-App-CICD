@@ -27,7 +27,6 @@
 		04E9B0202AA6079100296DD9 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9B01E2AA6079100296DD9 /* FavoriteTableViewCell.swift */; };
 		04E9B0212AA6079100296DD9 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E9B01F2AA6079100296DD9 /* FavoriteTableViewCell.xib */; };
 		04EFA66E2A94FCC800A6EDE4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA66D2A94FCC800A6EDE4 /* String+Ext.swift */; };
-		0FB1C7357907ACAE0B15B404 /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C61ED96B1BB1713817AEEEA /* Pods_Rawg_Io_API.framework */; };
 		1620889A2AFB53A300226D80 /* DetailGameViewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162088992AFB53A300226D80 /* DetailGameViewsController.xib */; };
 		1620889C2AFB53AC00226D80 /* DetailGameViewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1620889B2AFB53AC00226D80 /* DetailGameViewsController.swift */; };
 		1620889F2AFB541800226D80 /* PlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1620889E2AFB541800226D80 /* PlatformCollectionViewCell.xib */; };
@@ -36,6 +35,9 @@
 		162088A52AFB550F00226D80 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162088A42AFB550F00226D80 /* UIViewController+Ext.swift */; };
 		1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */; };
 		16261D1A2AF48D180057357E /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D192AF48D180057357E /* Injection.swift */; };
+		16BA0E222AFB9112001955D1 /* iOS-Game-App-About in Frameworks */ = {isa = PBXBuildFile; productRef = 16BA0E212AFB9112001955D1 /* iOS-Game-App-About */; };
+		16BA0E242AFB9115001955D1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 16BA0E232AFB9115001955D1 /* Core */; };
+		C7C6F9DD961FE6288B2ACC3B /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9ABA5DC99DF23837ADE4F7 /* Pods_Rawg_Io_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,9 +71,9 @@
 		162088A42AFB550F00226D80 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		16261D192AF48D180057357E /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
-		5C61ED96B1BB1713817AEEEA /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E849E0919718352E0610465 /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
-		EE518CDECC67CD60E6EF2955 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
+		CC4F499E5F3DE1CFF530F667 /* Pods-Rawg Io API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.debug.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.debug.xcconfig"; sourceTree = "<group>"; };
+		CCDB95A7071DB84BAF8FDD81 /* Pods-Rawg Io API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rawg Io API.release.xcconfig"; path = "Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API.release.xcconfig"; sourceTree = "<group>"; };
+		EB9ABA5DC99DF23837ADE4F7 /* Pods_Rawg_Io_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rawg_Io_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FB1C7357907ACAE0B15B404 /* Pods_Rawg_Io_API.framework in Frameworks */,
+				16BA0E222AFB9112001955D1 /* iOS-Game-App-About in Frameworks */,
+				16BA0E242AFB9115001955D1 /* Core in Frameworks */,
+				C7C6F9DD961FE6288B2ACC3B /* Pods_Rawg_Io_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +105,7 @@
 				0444942E2A90AC8400B46974 /* Rawg Io API */,
 				0444942D2A90AC8400B46974 /* Products */,
 				B0993D50D042A45EA17AE8C0 /* Pods */,
-				E95AAAB117CCAFA6A5D3F961 /* Frameworks */,
+				05471A185C2E48FD642704DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,6 +230,14 @@
 			path = ListFavorite;
 			sourceTree = "<group>";
 		};
+		05471A185C2E48FD642704DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB9ABA5DC99DF23837ADE4F7 /* Pods_Rawg_Io_API.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		162088982AFB539300226D80 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,18 +276,10 @@
 		B0993D50D042A45EA17AE8C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE518CDECC67CD60E6EF2955 /* Pods-Rawg Io API.debug.xcconfig */,
-				9E849E0919718352E0610465 /* Pods-Rawg Io API.release.xcconfig */,
+				CC4F499E5F3DE1CFF530F667 /* Pods-Rawg Io API.debug.xcconfig */,
+				CCDB95A7071DB84BAF8FDD81 /* Pods-Rawg Io API.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E95AAAB117CCAFA6A5D3F961 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5C61ED96B1BB1713817AEEEA /* Pods_Rawg_Io_API.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,11 +289,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044494402A90AC8500B46974 /* Build configuration list for PBXNativeTarget "Rawg Io API" */;
 			buildPhases = (
-				9867332096A82C078FBAE52D /* [CP] Check Pods Manifest.lock */,
+				1C4EC3F352162874AECB9585 /* [CP] Check Pods Manifest.lock */,
 				044494282A90AC8400B46974 /* Sources */,
 				044494292A90AC8400B46974 /* Frameworks */,
 				0444942A2A90AC8400B46974 /* Resources */,
-				46299D13FF57DE6F0B52AD99 /* [CP] Embed Pods Frameworks */,
+				1322C459E0D8409E88C0E7F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +301,8 @@
 			);
 			name = "Rawg Io API";
 			packageProductDependencies = (
+				16BA0E212AFB9112001955D1 /* iOS-Game-App-About */,
+				16BA0E232AFB9115001955D1 /* Core */,
 			);
 			productName = "Rawg Io API";
 			productReference = 0444942C2A90AC8400B46974 /* Rawg Io API.app */;
@@ -327,6 +333,8 @@
 			);
 			mainGroup = 044494232A90AC8400B46974;
 			packageReferences = (
+				16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */,
+				16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */,
 			);
 			productRefGroup = 0444942D2A90AC8400B46974 /* Products */;
 			projectDirPath = "";
@@ -355,7 +363,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		46299D13FF57DE6F0B52AD99 /* [CP] Embed Pods Frameworks */ = {
+		1322C459E0D8409E88C0E7F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,7 +380,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rawg Io API/Pods-Rawg Io API-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9867332096A82C078FBAE52D /* [CP] Check Pods Manifest.lock */ = {
+		1C4EC3F352162874AECB9585 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,7 +571,7 @@
 		};
 		044494412A90AC8500B46974 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE518CDECC67CD60E6EF2955 /* Pods-Rawg Io API.debug.xcconfig */;
+			baseConfigurationReference = CC4F499E5F3DE1CFF530F667 /* Pods-Rawg Io API.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -592,7 +600,7 @@
 		};
 		044494422A90AC8500B46974 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E849E0919718352E0610465 /* Pods-Rawg Io API.release.xcconfig */;
+			baseConfigurationReference = CCDB95A7071DB84BAF8FDD81 /* Pods-Rawg Io API.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -641,6 +649,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-About.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-Core.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16BA0E212AFB9112001955D1 /* iOS-Game-App-About */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */;
+			productName = "iOS-Game-App-About";
+		};
+		16BA0E232AFB9115001955D1 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */;
+			productName = Core;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 044494242A90AC8400B46974 /* Project object */;
 }

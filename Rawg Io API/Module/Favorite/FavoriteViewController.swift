@@ -8,7 +8,6 @@
 import UIKit
 import MaterialComponents.MaterialSnackbar
 import Core
-import Detail
 
 class FavoriteViewController: UIViewController {
 
