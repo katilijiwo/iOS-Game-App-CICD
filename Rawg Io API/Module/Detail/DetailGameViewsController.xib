@@ -17,6 +17,7 @@
                 <outlet property="loadingIndicator" destination="wbu-nx-Aca" id="3s4-ZT-bjJ"/>
                 <outlet property="loveImg" destination="0Df-m5-mpK" id="O01-Df-8vt"/>
                 <outlet property="platformCollection" destination="HAj-lW-JBq" id="jnZ-ql-VRl"/>
+                <outlet property="platformCollectionLbl" destination="qLg-FL-mvQ" id="9U5-FR-xvd"/>
                 <outlet property="ratingLbl" destination="M31-Iy-2vO" id="I9d-3z-VRu"/>
                 <outlet property="releaseLbl" destination="z6G-CA-sRa" id="zqL-q7-ILN"/>
                 <outlet property="titleLbl" destination="VXM-6p-vcX" id="oYz-f9-feg"/>

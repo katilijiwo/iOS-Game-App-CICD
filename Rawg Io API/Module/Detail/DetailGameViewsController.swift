@@ -20,6 +20,7 @@ public class DetailGameViewsController: UIViewController {
     @IBOutlet weak var esrbLbl: UILabel!
     @IBOutlet weak var dscLabel: UILabel!
     @IBOutlet weak var platformCollection: UICollectionView!
+    @IBOutlet weak var platformCollectionLbl: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     
@@ -28,8 +29,8 @@ public class DetailGameViewsController: UIViewController {
    private var isGameFav = false
 
    private lazy var viewModel: DetailGameViewModel = {
-       let realm = try! Realm()
-       let useCase = Injection.init().provideGameDetailUseCase(realm: realm)
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       let useCase = Injection.init().provideGameDetailUseCase(realm: appDelegate.realm)
        let vm = DetailGameViewModel(gameDetailUseCase: useCase)
        vm.didGetGame = didGetGame
        vm.didFavGame = didFavGame
@@ -43,6 +44,10 @@ public class DetailGameViewsController: UIViewController {
 
    public override func viewDidLoad() {
        super.viewDidLoad()
+       
+       platformCollection.visiblity(gone: true)
+       platformCollectionLbl.visiblity(gone: true)
+       
        viewModel.getGameDetail(id: gameId)
        platformCollection.delegate = self
        platformCollection.dataSource = self
@@ -59,7 +64,7 @@ public class DetailGameViewsController: UIViewController {
             tempData = data
             displayData(data: data)
             showIndicator(isHidden: true)
-            //platformCollection?.reloadData()
+            platformCollection?.reloadData()
             viewModel.getFavGameById(gameId: self.gameId)
             break
         case .error(_):

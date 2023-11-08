@@ -101,7 +101,6 @@
 				16F819832AF2A57E004F7E72 /* Packages */,
 				0444942E2A90AC8400B46974 /* Rawg Io API */,
 				0444942D2A90AC8400B46974 /* Products */,
-				B0993D50D042A45EA17AE8C0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,13 +260,6 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
-		B0993D50D042A45EA17AE8C0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,9 +310,9 @@
 			);
 			mainGroup = 044494232A90AC8400B46974;
 			packageReferences = (
-				16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */,
-				16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */,
-				16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */,
+				16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */,
+				16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0444942D2A90AC8400B46974 /* Products */;
 			projectDirPath = "";
@@ -593,7 +585,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */ = {
+		16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-About.git";
 			requirement = {
@@ -601,7 +593,7 @@
 				kind = branch;
 			};
 		};
-		16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */ = {
+		16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-Core.git";
 			requirement = {
@@ -609,7 +601,7 @@
 				kind = branch;
 			};
 		};
-		16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -622,17 +614,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		16BA0E212AFB9112001955D1 /* iOS-Game-App-About */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About.git" */;
+			package = 16BA0E1B2AFB90EF001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */;
 			productName = "iOS-Game-App-About";
 		};
 		16BA0E232AFB9115001955D1 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core.git" */;
+			package = 16BA0E1E2AFB90FC001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */;
 			productName = Core;
 		};
 		16D4C5B22AFC0A4D002C76E8 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = 16D4C5B12AFC0A4D002C76E8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
