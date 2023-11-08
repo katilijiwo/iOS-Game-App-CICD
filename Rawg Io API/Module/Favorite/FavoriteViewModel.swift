@@ -6,21 +6,38 @@
 //
 
 import Foundation
-
+import Combine
+import Core
 
 class FavoriteViewModel {
     
+    private var cancellables: Set<AnyCancellable> = []
     var didGetListFavGame: ((Status<[GameModel]?>.type) -> Void)? = nil
     
-    private let gameRepository: GameRepositoryProtocol
-    init(gameRepository: GameRepositoryProtocol) {
-        self.gameRepository = gameRepository
+    private let gameDetailUseCase: GameDetailUseCase
+    init(gameDetailUseCase: GameDetailUseCase) {
+        self.gameDetailUseCase = gameDetailUseCase
     }
-    
+
     func getFavGame() {
-        gameRepository.getFavGames(completion: { result in
-            self.didGetListFavGame?(Status<[GameModel]?>.type.result(result))
-        })
+        self.didGetListFavGame?(Status<[GameModel]?>.type.loading)
+        gameDetailUseCase.getFavGames()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+              switch completion {
+              case .failure:
+                  DispatchQueue.main.async {
+                      self.didGetListFavGame?(Status<[GameModel]?>.type.error(String(describing: completion)))
+                  }
+              case .finished:
+                  break
+              }
+            }, receiveValue: { favGame in
+                DispatchQueue.main.async {
+                    self.didGetListFavGame?(Status<[GameModel]?>.type.result(favGame))
+                }
+            })
+            .store(in: &cancellables)
     }
     
 }

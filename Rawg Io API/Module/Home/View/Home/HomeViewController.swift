@@ -6,7 +6,9 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialSnackbar
+import Core
+import SwiftUI
+import iOS_Game_App_About
 
 class HomeViewController: UIViewController {
 
@@ -17,7 +19,8 @@ class HomeViewController: UIViewController {
     private var listGame: [GameModel]? = nil
     
     private lazy var viewModel: HomeViewModel = {
-        let useCase = Injection.init().provideGameUseCase()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let useCase = Injection.init().provideGameUseCase(realm: appDelegate.realm)
         let vm = HomeViewModel(gameUseCase: useCase)
         vm.didGetListGame = didGetListGame
         return vm
@@ -26,7 +29,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         setupView()
         setupTableView()
-        viewModel.getCategories()
+        viewModel.getGames()
         showIndicator(isHidden: false)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -73,13 +76,12 @@ class HomeViewController: UIViewController {
     }
 
     private func showErrorMessage(error: String) {
-        let message = MDCSnackbarMessage(text: error)
-        MDCSnackbarManager.default.show(message)
+        showToast(message: error, font: .systemFont(ofSize: 12.0))
     }
     
     
     @IBAction func aboutDidPress(_ sender: UIButton) {
-        let vc = AboutViewController()
+        let vc = AboutViewController.viewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -111,9 +113,10 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameId = Int(listGame?[indexPath.row].id ?? 0)
-        let vc = DetailGameViewController()
+        
+        let vc = DetailGameViewsController()
         vc.newInstance(gameId: gameId)
-
+                
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

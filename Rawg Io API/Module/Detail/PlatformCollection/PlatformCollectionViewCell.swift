@@ -7,19 +7,19 @@
 
 import UIKit
 
-class PlatformCollectionViewCell: UICollectionViewCell {
+public class PlatformCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "PlatformCollectionViewCell"
+    public static let identifier = "PlatformCollectionViewCell"
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var textLbl: UILabel!
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
     }
     
-    func setupViews(text: String) {
+    public func setupViews(text: String) {
         rootView.clipsToBounds = false
         rootView.layer.cornerRadius = 24
         textLbl.text = text

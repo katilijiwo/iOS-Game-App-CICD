@@ -1,54 +1,60 @@
 //
-//  DetailGameViewController.swift
-//  Rawg Io API
+//  DetailGameViewsController.swift
 //
-//  Created by MAC on 21/08/23.
+//
+//  Created by koinworks on 07/11/23.
 //
 
 import UIKit
-import MaterialComponents
+import Core
+import RealmSwift
+import SDWebImage
 
-class DetailGameViewController: UIViewController {
-    
-    
-    @IBOutlet var rootView: UIView!
-    @IBOutlet weak var platformCollection: UICollectionView!
-    @IBOutlet weak var scrollView: UIScrollView!
+public class DetailGameViewsController: UIViewController {
+        
+    @IBOutlet weak var loveImg: UIImageView!
     @IBOutlet weak var gameImg: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var releaseLbl: UILabel!
+    @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var esrbLbl: UILabel!
     @IBOutlet weak var dscLabel: UILabel!
-    @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var platformCollection: UICollectionView!
+    @IBOutlet weak var platformCollectionLbl: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var loveImg: UIImageView!
+
     
-    private var gameId = 0
-    private var tempData: GameDetailModel? = nil
-    private var isGameFav = false
-    
-    private lazy var viewModel: DetailGameViewModel = {
-        let useCase = Injection.init().provideGameDetailUseCase()
-        let vm = DetailGameViewModel(gameDetailUseCase: useCase)
-        vm.didGetGame = didGetGame
-        vm.didFavGame = didFavGame
-        vm.didGameIsFav = didGameIsFav
-        return vm
-    }()
-    
-    func newInstance(gameId: Int){
-        self.gameId = gameId
+   private var gameId = 0
+   private var tempData: GameDetailModel? = nil
+   private var isGameFav = false
+
+   private lazy var viewModel: DetailGameViewModel = {
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       let useCase = Injection.init().provideGameDetailUseCase(realm: appDelegate.realm)
+       let vm = DetailGameViewModel(gameDetailUseCase: useCase)
+       vm.didGetGame = didGetGame
+       vm.didFavGame = didFavGame
+       vm.didGameIsFav = didGameIsFav
+       return vm
+   }()
+
+   public func newInstance(gameId: Int){
+       self.gameId = gameId
+   }
+
+   public override func viewDidLoad() {
+       super.viewDidLoad()
+       
+       platformCollection.visiblity(gone: true)
+       platformCollectionLbl.visiblity(gone: true)
+       
+       viewModel.getGameDetail(id: gameId)
+       platformCollection.delegate = self
+       platformCollection.dataSource = self
+       platformCollection.register(
+           UINib(nibName: PlatformCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PlatformCollectionViewCell.identifier)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.getGameDetail(id: gameId)
-        platformCollection.delegate = self
-        platformCollection.dataSource = self
-        platformCollection.register(
-            UINib(nibName: PlatformCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PlatformCollectionViewCell.identifier)
-    }
-    
+
     func didGetGame(state: Status<GameDetailModel>.type?) {
         switch state {
         case .loading:
@@ -69,7 +75,7 @@ class DetailGameViewController: UIViewController {
             break
         }
     }
-    
+
     func didFavGame(state: Status<Void?>.type) {
         switch state {
         case .loading:
@@ -84,22 +90,20 @@ class DetailGameViewController: UIViewController {
             break
         }
     }
-    
+
     func didGameIsFav(state: Status<GameModel?>.type) {
         switch state {
         case .loading:
             showIndicator(isHidden: false)
             break
         case .result(let data):
-            DispatchQueue.main.sync {
-                isGameFav = data != nil
-                if(data != nil) {
-                    loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
-                    loveImg.tintColor = UIColor.red
-                } else {
-                    loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
-                    loveImg.tintColor = UIColor.black
-                }
+            isGameFav = data != nil
+            if(data != nil) {
+                loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
+                loveImg.tintColor = UIColor.red
+            } else {
+                loveImg.image = loveImg.image?.withRenderingMode(.alwaysTemplate)
+                loveImg.tintColor = UIColor.black
             }
             showIndicator(isHidden: true)
             break
@@ -108,7 +112,7 @@ class DetailGameViewController: UIViewController {
             break
         }
     }
-    
+
     private func showIndicator(isHidden: Bool) {
         loadingIndicator.isHidden = isHidden
         if(isHidden) {
@@ -117,7 +121,7 @@ class DetailGameViewController: UIViewController {
             loadingIndicator.startAnimating()
         }
     }
-    
+
     private func displayData(data: GameDetailModel) {
         gameImg.sd_setImage(with: URL(string: data.bgImage))
         titleLbl.text = data.name
@@ -128,7 +132,7 @@ class DetailGameViewController: UIViewController {
         dscLabel.numberOfLines = 0
         dscLabel.sizeToFit()
     }
-    
+
     @IBAction func favDidTap(_ sender: UIButton) {
         var message = ""
         let gameModel = GameModel(
@@ -145,20 +149,19 @@ class DetailGameViewController: UIViewController {
             viewModel.insertFavGame(gameModel: gameModel)
             message = "Game added to favorite"
         }
-        MDCSnackbarManager.default.show(MDCSnackbarMessage(text: message))
+        self.showToast(message: message, font: .systemFont(ofSize: 12.0))
     }
-    
     
 }
 
-extension DetailGameViewController: UICollectionViewDelegate {}
+extension DetailGameViewsController: UICollectionViewDelegate {}
 
-extension DetailGameViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension DetailGameViewsController: UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tempData?.platforms?.count ?? 0
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: PlatformCollectionViewCell.identifier, for: indexPath) as! PlatformCollectionViewCell
         let platforms = self.tempData?.platforms?[indexPath.row]
@@ -168,3 +171,4 @@ extension DetailGameViewController: UICollectionViewDataSource {
         return cell
     }
 }
+

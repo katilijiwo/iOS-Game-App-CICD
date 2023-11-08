@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialSnackbar
+import Core
 
 class FavoriteViewController: UIViewController {
 
@@ -16,8 +16,9 @@ class FavoriteViewController: UIViewController {
     private var listGame: [GameModel]? = nil
     
     private lazy var viewModel: FavoriteViewModel = {
-        let repository = Injection.init().provideRepository()
-        let vm = FavoriteViewModel(gameRepository: repository)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let useCase = Injection.init().provideGameDetailUseCase(realm: appDelegate.realm)
+        let vm = FavoriteViewModel(gameDetailUseCase: useCase)
         vm.didGetListFavGame = didGetListFavGame
         return vm
     }()
@@ -37,25 +38,23 @@ class FavoriteViewController: UIViewController {
     }
     
     private func didGetListFavGame(state: Status<[GameModel]?>.type?) {
-        DispatchQueue.main.sync {
-            switch state {
-            case .loading:
-                showIndicator(isHidden: false)
-                break
-            case .result(let data):
-                showIndicator(isHidden: true)
-                self.listGame = data
-                favoriteTableView.reloadData()
-                break
-            case .error(let err):
-                showIndicator(isHidden: true)
-                showErrorMessage(error: err)
-                break
-            case .none:
-                showIndicator(isHidden: true)
-                showErrorMessage(error: "Something went wrong")
-                break
-            }
+        switch state {
+        case .loading:
+            showIndicator(isHidden: false)
+            break
+        case .result(let data):
+            showIndicator(isHidden: true)
+            self.listGame = data
+            favoriteTableView.reloadData()
+            break
+        case .error(let err):
+            showIndicator(isHidden: true)
+            showErrorMessage(error: err)
+            break
+        case .none:
+            showIndicator(isHidden: true)
+            showErrorMessage(error: "Something went wrong")
+            break
         }
     }
     
@@ -71,8 +70,7 @@ class FavoriteViewController: UIViewController {
     }
     
     private func showErrorMessage(error: String) {
-        let message = MDCSnackbarMessage(text: error)
-        MDCSnackbarManager.default.show(message)
+        showToast(message: error, font: .systemFont(ofSize: 12.0))
     }
 
 }
@@ -96,7 +94,7 @@ extension FavoriteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameId = Int(listGame?[indexPath.row].id ?? 0)
-        let vc = DetailGameViewController()
+        let vc = DetailGameViewsController()
         vc.newInstance(gameId: gameId)
 
         self.navigationController?.pushViewController(vc, animated: true)
