@@ -28,7 +28,6 @@
 		04E9B0212AA6079100296DD9 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E9B01F2AA6079100296DD9 /* FavoriteTableViewCell.xib */; };
 		04EFA66E2A94FCC800A6EDE4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA66D2A94FCC800A6EDE4 /* String+Ext.swift */; };
 		0FB1C7357907ACAE0B15B404 /* Pods_Rawg_Io_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C61ED96B1BB1713817AEEEA /* Pods_Rawg_Io_API.framework */; };
-		1614667A2AF79ECD007F93F8 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 161466792AF79ECD007F93F8 /* Core */; };
 		1620889A2AFB53A300226D80 /* DetailGameViewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162088992AFB53A300226D80 /* DetailGameViewsController.xib */; };
 		1620889C2AFB53AC00226D80 /* DetailGameViewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1620889B2AFB53AC00226D80 /* DetailGameViewsController.swift */; };
 		1620889F2AFB541800226D80 /* PlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1620889E2AFB541800226D80 /* PlatformCollectionViewCell.xib */; };
@@ -37,7 +36,6 @@
 		162088A52AFB550F00226D80 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162088A42AFB550F00226D80 /* UIViewController+Ext.swift */; };
 		1624ACDA2AAB622600FF7FD2 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624ACD92AAB622600FF7FD2 /* FavoriteViewModel.swift */; };
 		16261D1A2AF48D180057357E /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D192AF48D180057357E /* Injection.swift */; };
-		16BA0E1A2AFB84D8001955D1 /* iOS-Game-App-About in Frameworks */ = {isa = PBXBuildFile; productRef = 16BA0E192AFB84D8001955D1 /* iOS-Game-App-About */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,8 +80,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FB1C7357907ACAE0B15B404 /* Pods_Rawg_Io_API.framework in Frameworks */,
-				16BA0E1A2AFB84D8001955D1 /* iOS-Game-App-About in Frameworks */,
-				1614667A2AF79ECD007F93F8 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +297,6 @@
 			);
 			name = "Rawg Io API";
 			packageProductDependencies = (
-				161466792AF79ECD007F93F8 /* Core */,
-				16BA0E192AFB84D8001955D1 /* iOS-Game-App-About */,
 			);
 			productName = "Rawg Io API";
 			productReference = 0444942C2A90AC8400B46974 /* Rawg Io API.app */;
@@ -333,8 +327,6 @@
 			);
 			mainGroup = 044494232A90AC8400B46974;
 			packageReferences = (
-				161466782AF79ECD007F93F8 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */,
-				16BA0E182AFB84D8001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */,
 			);
 			productRefGroup = 0444942D2A90AC8400B46974 /* Products */;
 			projectDirPath = "";
@@ -649,38 +641,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		161466782AF79ECD007F93F8 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-Core.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		16BA0E182AFB84D8001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jiwomdf/iOS-Game-App-About.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		161466792AF79ECD007F93F8 /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 161466782AF79ECD007F93F8 /* XCRemoteSwiftPackageReference "iOS-Game-App-Core" */;
-			productName = Core;
-		};
-		16BA0E192AFB84D8001955D1 /* iOS-Game-App-About */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 16BA0E182AFB84D8001955D1 /* XCRemoteSwiftPackageReference "iOS-Game-App-About" */;
-			productName = "iOS-Game-App-About";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 044494242A90AC8400B46974 /* Project object */;
 }
